@@ -1,0 +1,14 @@
+<?php
+	class Mvalidasi extends CI_Model
+	{
+		function validasi()
+		{
+			if ($this->session->userdata('id_Pegawai_Outlet')=='')
+			{
+				echo "<script>alert ('Anda tidak dapat mengakses halaman ini..!');</script>";
+				redirect('','refresh');
+			}
+		}
+		
+	}
+?>
