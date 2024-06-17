@@ -55,8 +55,8 @@
 		{
 			
 			$data=$_POST;
-			$idmhs=$data['id_Pegawai_Outlet'];
-			if($idmhs=="")
+			$id_Pegawai_Outlet=$data['id_Pegawai_Outlet'];
+			if($id_Pegawai_Outlet =="")
 			{
 				//simpan
 				$this->db->insert('pegawai_outlet',$data);
@@ -67,18 +67,18 @@
 			{
 				//edit	
 				$update=array(
-					'id_Pegawai_Outlet '=>$idmhs
+					'id_Pegawai_Outlet '=>$id_Pegawai_Outlet 
 				);
 				$this->db->where($update);
 				$this->db->update('pegawai_outlet',$data);
-				$sql="select * from pegawai_outlet where id_Pegawai_Outlet='".$idmhs."'";
+				$sql="select * from pegawai_outlet where id_Pegawai_Outlet='".$id_Pegawai_Outlet."'";
 				$query=$this->db->query($sql);
 				if($query->num_rows()>0)
 				{
 				//session
 					$data=$query->row();
 					$array=array(
-						'id_Pegawai_Outlet'=>$data->id_Pegawai_Outlet,
+					'id_Pegawai_Outlet'=>$data->id_Pegawai_Outlet,
                     'Alamat_pegawai_outlet'=>$data->Alamat_pegawai_outlet,
 					'Nama_pegawai_outlet'=>$data->Nama_pegawai_outlet,
 					'jabatan_pegawa_outlet'=>$data->jabatan_pegawa_outlet,
@@ -94,19 +94,19 @@
 		function proseseditpassword()
 		{
 			$data=$_POST;
-			$idmhs=$data['id_Pegawai_Outlet '];
+			$id_Pegawai_Outlet =$data['id_Pegawai_Outlet '];
 
 			$current_password = $data["current_password"];
 			$new_password = $data["new_password"];
 			$confirm_password = $data["confirm_password"];
 
-			$query = $this->db->get_where('pegawai_outlet',['id_Pegawai_Outlet '=>$idmhs])->row_array();
+			$query = $this->db->get_where('pegawai_outlet',['id_Pegawai_Outlet '=>$id_Pegawai_Outlet])->row_array();
 
 			if($current_password == $query['Password']){
 				// Check if the new password and confirm password match
 				if ($new_password == $confirm_password) {
 					$update=array(
-						'id_Pegawai_Outlet '=>$idmhs
+						'id_Pegawai_Outlet '=>$id_Pegawai_Outlet 
 					);
 					$this->db->where($update);
 					$this->db->update('pegawai_outlet',['Password'=>$new_password]);
@@ -125,9 +125,9 @@
 				
 		}
 
-		function getmahasiswa($idmhs)
+		function getmahasiswa($id_Pegawai_Outlet )
 		{
-			return $this->db->get_where('pegawai_outlet',['id_Pegawai_Outlet '=>$idmhs])->row();
+			return $this->db->get_where('pegawai_outlet',['id_Pegawai_Outlet '=>$id_Pegawai_Outlet])->row();
 		}
 
 		function getperusahaan($Id_Perusahaan)
@@ -173,7 +173,7 @@
 
         function simpandatastatus()
 		{
-			$Nama=$this->input->post('Nama');
+			$Nama_pegawai_outlet=$this->input->post('Nama_pegawai_outlet');
             $PemilikStatus=$this->input->post('PemilikStatus');
             $Judul=$this->input->post('Judul');
             $Tanggal_Status=$this->input->post('Tanggal_Status');
@@ -195,7 +195,7 @@
 			}
 
             $data=array(
-				'Nama'=>$Nama,
+				'Nama_pegawai_outlet'=>$Nama_pegawai_outlet,
                 'PemilikStatus'=>$PemilikStatus,
                 'Judul'=>$Judul,
                 'Tanggal_Status'=>$Tanggal_Status,

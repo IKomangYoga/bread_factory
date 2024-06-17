@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="<?=base_url()?>assets/asset/css/tiny-slider.css" rel="stylesheet">
 		<link href="<?=base_url()?>assets/asset/css/style.css" rel="stylesheet">
-		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+		<title>Bread Factory</title>
 	</head>
 
 	<body>
@@ -32,13 +31,12 @@
 
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Home</a>
-						</li>
-						<li><a class="nav-link" href="shop.html">Product</a></li>
-						<li><a class="nav-link" href="blog.html">Pesananmu</a></li>
+						
+                        <li><a class="nav-link" href="<?php echo base_url('cmhs/dashboard'); ?>">Home</a></li>
+						<li><a class="nav-link" href="shop.html">Shop</a></li>
 						<li><a class="nav-link" href="about.html">About us</a></li>
 						<li><a class="nav-link" href="services.html">Services</a></li>
+						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
 					</ul>
 
@@ -52,100 +50,117 @@
 		</nav>
 		<!-- End Header/Navigation -->
 
-		<!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Bread Factory <span clsas="d-block">Roti Enak </span></h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							<div class="hero-img-wrap">
-								<img src="<?=base_url()?>assets/asset/images/roti.png" class="img-fluid">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		<!-- End Hero Section -->
-
-		
-
-		<!-- Start About Us Section -->
-		<div class="why-choose-section">
-			<div class="container">
-				<div class="row justify-content-between">
-					<div class="col-lg-6">
-						<h2 class="section-title">Tentang Kami</h2>
-						<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-						
-						<div class="row my-5">
-							<h2 class="section-title">Our Service</h2>
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="<?=base_url()?>assets/asset/images/truck.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Fast &amp; Free Shipping</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="<?=base_url()?>assets/asset/images/bag.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Easy to Shop</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="<?=base_url()?>assets/asset/images/support.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>24/7 Support</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="<?=base_url()?>assets/asset/images/return.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Hassle Free Returns</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
-
-						</div>
-					</div>
-
-					<div class="col-lg-5">
-						<div class="img-wrap">
-							<img src="<?=base_url()?>assets/asset/images/why-choose-us-img.jpg" alt="Image" class="img-fluid">
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-		<!-- End About Us Section -->
-
-
-		
-
+		<div class="untree_co-section before-footer-section">
+            <div class="container">
+              <div class="row mb-5">
+                <form class="col-md-12" method="post">
+                  <div class="site-blocks-table">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th class="product-thumbnail">Gambar Product</th>
+                          <th class="product-name">Nama Product</th>
+                          <th class="product-price">Harga</th>
+                          <th class="product-quantity">Jumlah</th>
+                          <th class="product-total">Total</th>
+                          <th class="product-remove">Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="product-thumbnail">
+                            <img src="images/product-1.png" alt="Image" class="img-fluid">
+                          </td>
+                          <td class="product-name">
+                            <h2 class="h5 text-black">Product 1</h2>
+                          </td>
+                          <td>$49.00</td>
+                          <td>
+                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                              <div class="input-group-prepend">
+                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                              </div>
+                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                              <div class="input-group-append">
+                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
+                              </div>
+                            </div>
+        
+                          </td>
+                          <td>$49.00</td>
+                          <td><a href="#" class="btn btn-black btn-sm">Batal</a></td>
+                        </tr>
+        
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+              </div>
+        
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row mb-5">
+                    <!-- <div class="col-md-6 mb-3 mb-md-0">
+                      <button class="btn btn-black btn-sm btn-block">Update Cart</button>
+                    </div> -->
+                    <div class="col-md-6">
+                      <button class="btn btn-outline-black btn-sm btn-block">Lanjut Berbelanja</button>
+                    </div>
+                  </div>
+                  <!-- <div class="row">
+                    <div class="col-md-12">
+                      <label class="text-black h4" for="coupon">Coupon</label>
+                      <p>Enter your coupon code if you have one.</p>
+                    </div>
+                    <div class="col-md-8 mb-3 mb-md-0">
+                      <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
+                    </div>
+                    <div class="col-md-4">
+                      <button class="btn btn-black">Apply Coupon</button>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="col-md-6 pl-5">
+                  <div class="row justify-content-end">
+                    <div class="col-md-7">
+                      <div class="row">
+                        <div class="col-md-12 text-right border-bottom mb-5">
+                          <h3 class="text-black h4 text-uppercase">Total Belanja</h3>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <!-- <div class="col-md-6">
+                          <span class="text-black">Subtotal</span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                          <strong class="text-black">$230.00</strong>
+                        </div> -->
+                      </div>
+                      <div class="row mb-5">
+                        <div class="col-md-6">
+                          <span class="text-black">Total</span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                          <strong class="text-black">$230.00</strong>
+                        </div>
+                      </div>
+        
+                      <div class="row">
+                        <div class="col-md-12">
+                          <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Lanjut ke Checkout</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 		
 
 		<!-- Start Footer Section -->
-		<footer class="footer-section">
+		<!-- <footer class="footer-section">
 			<div class="container relative">
 
 				<div class="sofa-img">
@@ -232,7 +247,7 @@
 					<div class="row pt-4">
 						<div class="col-lg-6">
 							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a hreff="https://themewagon.com">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
-            </p>
+            <!-- </p>
 						</div>
 
 						<div class="col-lg-6 text-center text-lg-end">
@@ -246,8 +261,8 @@
 				</div>
 
 			</div>
-		</footer>
-		<!-- End Footer Section -->	
+		</footer> -->
+		<!-- End Footer Section	 -->
 
 
 		<script src="<?=base_url()?>assets/asset/js/bootstrap.bundle.min.js"></script>

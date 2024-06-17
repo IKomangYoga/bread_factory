@@ -1,9 +1,7 @@
 <?=$header?>
 <body>
 
-<?=$navbar?>
 
-<?=$sidebarprofile?>
   <main id="main" class="main">
 <div class="container">
     <div class="pagetitle">
@@ -34,8 +32,8 @@
             <?php
               }
             ?>
-              <h2><?php echo $this->session->userdata('Nama'); ?></h2>
-              <h3><?php echo $datamhs->Prodi ?></h3>
+              <!-- <h2><?php echo $this->session->userdata('id_Pegawai_Outlet'); ?></h2>
+              <h3><?php echo $datamhs->Nama_pegawai_outlet ?></h3> -->
             </div>
           </div>
 
@@ -65,42 +63,37 @@
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
       
-                  <h5 class="card-title">Profile Details</h5>
+                  <h5 class="card-title">Profile Detail</h5>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">NIM</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $this->session->userdata('Nim'); ?></div>
-                    <!-- <input type="text" class="col-lg-9 col-md-8" id="Email_Perusahaan" name="Nim" placeholder="<?php echo $this->session->userdata('Nim'); ?>"> -->
+                    <div class="col-lg-3 col-md-4 label ">ID Pegawai</div>
+                    <div class="col-lg-9 col-md-8"><?php echo $this->session->userdata('id_Pegawai_Outlet'); ?></div>
+                    
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Name</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $datamhs->Nama ?></div>
+                    <div class="col-lg-3 col-md-4 label ">Nama</div>
+                    <div class="col-lg-9 col-md-8"><?php echo $datamhs->Nama_pegawai_outlet ?></div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $this->session->userdata('Jenis_Kelamin'); ?></div>
+                    <div class="col-lg-3 col-md-4 label">Alamat</div>
+                    <div class="col-lg-9 col-md-8"><?php echo $datamhs->Alamat_pegawai_outlet ?></div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Jurusan</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $this->session->userdata('Jurusan'); ?></div>
+                    <div class="col-lg-3 col-md-4 label">Jabatan</div>
+                    <div class="col-lg-9 col-md-8"><?php echo $this->session->userdata('jabatan_pegawa_outlet'); ?></div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Program Studi</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $this->session->userdata('Prodi'); ?></div>
+                    <div class="col-lg-3 col-md-4 label">Divisi</div>
+                    <div class="col-lg-9 col-md-8"><?php echo $datamhs->Divisi_pegawai_outlet ?></div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $datamhs->Email ?></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">No. Telepon</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $datamhs->No_Telepon ?></div>
+                    <div class="col-lg-3 col-md-4 label">Password</div>
+                    <div class="col-lg-9 col-md-8"><?php echo $datamhs->password ?></div>
                   </div>
 
                 </div>
@@ -165,63 +158,35 @@
                   
 
                   <form method="post"action ="<?php echo base_url('Cmhs/editdata')?>" >
-                  <input type="hidden" name="id_mhs"value="<?php echo $datamhs->id_mhs ?>">
+                  <input type="hidden" name="id_Pegawai_Outlet"value="<?php echo $datamhs->id_Pegawai_Outlet ?>">
                   
                     <div class="row mb-3">
                       <label for="Nama" class="col-md-4 col-lg-3 col-form-label">Nama</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Nama" type="text" class="form-control" id="Nama" value="<?php echo $datamhs->Nama ?>">
+                        <input name="Nama" type="text" class="form-control" id="Nama_pegawai_outlet" value="<?php echo $datamhs->Nama_pegawai_outlet ?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="Alamat" class="form-control" id="Alamat" style="height: 100px"><?php echo $datamhs->Alamat ?></textarea>
+                        <textarea name="Alamat" class="form-control" id="Alamat_pegawai_outlet" style="height: 100px"><?php echo $datamhs->Alamat_pegawai_outlet ?></textarea>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">No. Telepon</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">jabatan pegawai outlet</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="No_Telepon" type="text" class="form-control" id="No_Telepon" value="<?php echo $datamhs->No_Telepon ?>">
+                        <input name="No_Telepon" type="text" class="form-control" id="jabatan_pegawa_outlet" value="<?php echo $datamhs->jabatan_pegawa_outlet ?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Divisi pegawai outlet</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Email" type="email" class="form-control" id="Email" value="<?php echo $datamhs->Email ?>">
+                        <input name="Divisi" type="text" class="form-control" id="Divisi_pegawai_outlet" value="<?php echo $datamhs->Divisi_pegawai_outlet ?>">
                       </div>
                     </div>
-
-                    <!-- <div class="row mb-3">
-                      <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
-                      </div>
-                    </div> -->
-
-                    <!-- <div class="row mb-3">
-                      <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="facebook" type="text" class="form-control" id="Facebook" value="https://facebook.com/#">
-                      </div>
-                    </div> -->
-
-                    <!-- <div class="row mb-3">
-                      <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/#">
-                      </div>
-                    </div> -->
-
-                    <!-- <div class="row mb-3">
-                      <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
-                      </div>
-                    </div> -->
 
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Data Diri?')">Save Changes</button>
@@ -233,7 +198,7 @@
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
                   <form method="post"action ="<?php echo base_url('Cmhs/editpassword')?>" >
-                  <input type="hidden" name="id_mhs"value="<?php echo $datamhs->id_mhs ?>">
+                  <input type="hidden" name="id_Pegawai_Outlet"value="<?php echo $datamhs->id_Pegawai_Outlet ?>">
 
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>

@@ -10,7 +10,7 @@
                 <p>Your Account has been Successfully Registered</p>
             </html>';
             $Nim=$this->input->post('Nim');
-			$Nama=$this->input->post('Nama');
+			$Nama_pegawai_outlet=$this->input->post('Nama_pegawai_outlet');
             $Password=$this->input->post('Password');
             $Jurusan=$this->input->post('Jurusan');
             $Alamat=$this->input->post('Alamat');
@@ -53,7 +53,7 @@
 
             $data=array(
                 'Nim'=>$Nim,
-				'Nama'=>$Nama,
+				'Nama_pegawai_outlet'=>$Nama_pegawai_outlet,
                 'Password'=>$Password,
                 'Jurusan'=>$Jurusan,
                 'Alamat'=>$Alamat,

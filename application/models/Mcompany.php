@@ -83,7 +83,7 @@
 
         function simpandatastatus()
 		{
-			$Nama=$this->input->post('Nama');
+			$Nama_pegawai_outlet=$this->input->post('Nama_pegawai_outlet');
             $PemilikStatus=$this->input->post('PemilikStatus');
             $Judul=$this->input->post('Judul');
             $Tanggal_Status=$this->input->post('Tanggal_Status');
@@ -105,7 +105,7 @@
 			}
 
             $data=array(
-				'Nama'=>$Nama,
+				'Nama_pegawai_outlet'=>$Nama_pegawai_outlet,
                 'PemilikStatus'=>$PemilikStatus,
                 'Judul'=>$Judul,
                 'Tanggal_Status'=>$Tanggal_Status,

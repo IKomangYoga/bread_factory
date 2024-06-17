@@ -95,7 +95,7 @@
 		public function profile()
 		{
 			$data1=[
-				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
+				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet')),
 
 			];
 			$data=[
@@ -104,9 +104,14 @@
 				'sidebar'=>$this->load->view('partial/sidebar','',true),
 				'footer'=>$this->load->view('partial/footer','',true),
 				'sidebarprofile'=>$this->load->view('partial/sidebarprofile','',true),
-				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
+				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet')),
 			];
 			$this->load->view('Mahasiswa/users-profile',$data);
+		}
+
+		public function keranjang()
+		{
+			$this->load->view('Mahasiswa/keranjang_belanja');
 		}
 		
 		public function history()
