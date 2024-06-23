@@ -51,6 +51,7 @@
 			redirect('Cmhs/profile','refresh');
 		}
 
+
         function simpanmhs()
 		{
 			
@@ -151,6 +152,27 @@
 				$hasil="";	
 			}
 			return $hasil;	
+		}
+
+		// Manggil database roti
+		public function get_products()
+		{
+
+			$sql="select * from roti";
+			$query=$this->db->query($sql);
+			if ($query->num_rows()>0)
+			{
+				foreach ($query->result() as $row)
+				{
+					$hasil[]=$row;
+				}	
+			}
+			else
+			{
+				$hasil="Data Kosong";	
+			}
+			return $hasil;	
+
 		}
 
 		function tampildatastatus()

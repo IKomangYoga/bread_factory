@@ -109,6 +109,13 @@
 			$this->load->view('Mahasiswa/users-profile',$data);
 		}
 
+		// Manggil roti yang ada di model
+		public function product()
+		{
+			$get_products['hasil']=$this->mmhs->get_products();
+			$this->load->view('Mahasiswa/product', $get_products);
+		}
+
 		public function keranjang()
 		{
 			$this->load->view('Mahasiswa/keranjang_belanja');
