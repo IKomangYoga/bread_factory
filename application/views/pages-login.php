@@ -51,7 +51,7 @@
     <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
         <a href="<?php echo base_url('cdaftarmhs/register') ?>">
-          <i class="bi bi-circle"></i><span>Register Mahasiswa</span>
+          <i class="bi bi-circle"></i><span>Register Outlet</span>
         </a>
       </li>
       <li>

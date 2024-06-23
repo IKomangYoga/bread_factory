@@ -9,7 +9,8 @@
     <span class="d-none d-lg-block" style="color: white;">PKL Finder</span>
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
-</div><!-- End Logo -->
+</div>
+<!-- End Logo -->
 
 
       </ul><!-- End Profile Dropdown Items -->
@@ -33,7 +34,7 @@
     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
         <a href="<?php echo base_url('cdaftarmhs/login')?>">
-          <i class="bi bi-circle"></i><span>Login Mahasiswa</span>
+          <i class="bi bi-circle"></i><span>Login sebagai Outlet</span>
         </a>
       </li>
       <li>
@@ -51,7 +52,7 @@
     <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
       <li>
         <a href="<?php echo base_url('cdaftarmhs/register') ?>" class="active">
-          <i class="bi bi-circle"></i><span>Register Mahasiswa</span>
+          <i class="bi bi-circle"></i><span>Register Outlet</span>
         </a>
       </li>
       <li>
@@ -84,28 +85,42 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">NIM</label>
-                                    <input type="text" class="form-control" id="nama" name="Nim" placeholder="Masukkan Nim Anda" required>
+                                    <label for="username" class="form-label">Masukan id</label>
+                                    <input type="text" class="form-control" id="id_Pegawai_Outlet" name="id_Pegawai_Outlet" placeholder="Masukkan Nim Anda" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">No Telepon</label>
-                                    <input type="text" class="form-control" id="nama" name="No_Telepon" placeholder="Masukkan No Telepon Anda" required>
+                                    <label for="username" class="form-label">Masukan Alamat</label>
+                                    <input type="text" class="form-control" id="Alamat_pegawai_outlet" name="No_Telepon" placeholder="Masukkan No Telepon Anda" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Nama</label>
-                                    <input type="text" class="form-control" id="nama" name="Nama" placeholder="Masukkan Nama Anda" required>
+                                    <label for="username" class="form-label">Masukan Nama</label>
+                                    <input type="text" class="form-control" id="Nama_pegawai_outlet" name="Nama" placeholder="Masukkan Nama_pegawai_outlet" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="nama" name="Email" placeholder="Masukkan Email Anda" required>
+                                <label for="username" class="form-label">Masukan Jabatan</label> <br/>
+                                <select class="form-select" name="jabatan_pegawa_outlet">
+                                    <option value="">Pilih Jabatan</option>
+                                    <option value="outlet">Pegawai Outlet</option>
+                                    <option value="CEO">CEO</option>                                    
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                <label for="username" class="form-label">Masukan Divisi</label> <br/>
+                                <select class="form-select" name="Divisi_pegawai_outlet">
+                                    <option value="">Pilih Divisi</option>
+                                    <option value="outlet">Penjualan</option>
+                                    <option value="CEO">Keuangan</option>                                    
+                                </select>
                                 </div>
                             </div>
                         </div>
@@ -113,70 +128,19 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                 <label for="username" class="form-label">Password</label> <br/>
-                                <input type="password" class="form-control" name="Password" placeholder="Masukkan Password Anda" required>
+                                <input type="password" class="form-control" name="password" placeholder="Masukkan Password Anda" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">Alamat</label> <br/>
-                                    <input type="text" class="form-control" id="nama" name="Alamat" placeholder="Masukkan Alamat Anda" required>
-                                </div>
-                            </div>
+                            
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                        
+                        <!-- <div class="row">
                                 <div class="mb-3">
-                                <label for="username" class="form-label">Jurusan</label> <br/>
-                                <select class="form-select" name="Jurusan">
-                                    <option value="">Pilih Jurusan</option>
-                                    <option value="Teknik Elektro">Teknik Elektro</option>
-                                    <option value="Teknik Listrik">Teknik Listrik</option>
-                                    <option value="Teknik Sipil">Teknik Sipil</option>
-                                    <option value="Teknik Mesin">Teknik Mesin</option>
-                                    <option value="Akuntansi">Akuntansi</option>
-                                    <option value="Administrasi Niaga">Administrasi Niaga</option>
-                                    <option value="Pariwisata">Pariwisata</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">Jenis Kelamin</label> <br/>
-                                    <select class="form-select" name="Jenis_Kelamin">
-                                    <option value="">Pilih Jenis Kelamin</option>
-                                    <option value="Laki-laki">Laki-laki</option>
-                                    <option value="Perempuan">Perempuan</option>
-                                </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                <label for="password" class="form-label">Program Studi</label> <br/>
-                                <select class="form-select" name="Prodi">
-                                    <option value="">Pilih Program Studi</option>
-                                    <option value="D3 Teknik Listrik">D3 Teknik Listrik</option>
-                                    <option value="D3 Manajemen Informatika">D3 Manajemen Informatika</option>
-                                    <option value="D4 Teknik Otomasi">D4 Teknik Otomasi</option>
-                                    <option value="D4 TRPL">D4 TRPL</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                <label for="password" class="form-label">Bukti KTM (JPEG/JPG)</label> <br/>
-                                <input type="file" class="form-control" id="nama" name="Bukti_Ktm">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                                <div class="mb-3">
-                                <label for="password" class="form-label" >Upload CV (PDF)</label> <br/>
+                                <label for="password" class="form-label" >Upload Foto Profile</label> <br/>
                                 <input type="file" class="form-control" id="nama" name="Cv" >
                                 </div>
                             </div>
-                        <div class="d-grid gap-2">
+                        <div class="d-grid gap-2"> -->
                         <button class="btn" style="background-color: #012970; color: white;" type="submit">Daftar</button>
                         <button class="btn btn-outline-danger" type="reset">Hapus</button>
                         </div>

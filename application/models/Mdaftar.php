@@ -9,9 +9,9 @@
                 <h2>PKL Finder</h2>
                 <p>Your Account has been Successfully Registered</p>
             </html>';
-            $Nim=$this->input->post('Nim');
-			$Nama_pegawai_outlet=$this->input->post('Nama_pegawai_outlet');
-            $Password=$this->input->post('Password');
+            $id_Pegawai_Outlet =$this->input->post('id_Pegawai_Outlet');
+			$Alamat_pegawai_outlet=$this->input->post('Alamat_pegawai_outlet');
+            $Nama_pegawai_outlet=$this->input->post('Password');
             $Jurusan=$this->input->post('Jurusan');
             $Alamat=$this->input->post('Alamat');
             $Prodi=$this->input->post('Prodi');
