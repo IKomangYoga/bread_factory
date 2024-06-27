@@ -120,6 +120,12 @@
 		{
 			$this->load->view('Mahasiswa/keranjang_belanja');
 		}
+
+		public function pesanan()
+		{	
+			$get_products['hasil']=$this->mmhs->get_products();
+			$this->load->view('Mahasiswa/pesanan',$get_products);
+		}
 		
 		public function history()
 		{
