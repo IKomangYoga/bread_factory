@@ -116,16 +116,16 @@
 			$this->load->view('Mahasiswa/product', $get_products);
 		}
 
-		public function keranjang()
-		{
-			$this->load->view('Mahasiswa/keranjang_belanja');
-		}
+		
 
+		// Pergi ke Halaman Pesanan Outlet
 		public function pesanan()
 		{	
 			$get_products['hasil']=$this->mmhs->get_products();
 			$this->load->view('Mahasiswa/pesanan',$get_products);
 		}
+		
+
 		
 		public function history()
 		{
@@ -196,6 +196,14 @@
 		{
 			$this->load->model('mloginmhs');
 			$this->mloginmhs->prosesloginmhs();
+		}
+
+		public function keranjang()
+		{
+			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
+			var_dump($id_Pegawai_Outlet); // Check if the value is set
+			$data['keranjang_utama'] = $this->mmhs->get_keranjang_utama($id_Pegawai_Outlet);
+			$this->load->view('Mahasiswa/keranjang_belanja', $data);
 		}
     }
 ?>

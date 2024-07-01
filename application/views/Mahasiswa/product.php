@@ -50,24 +50,9 @@
 			</div>
 				
 		</nav>
-		<!-- End Header/Navigation --
+		<!-- End Header/Navigation -->
 
-		<!-- Start Hero Section -->
-			<!-- <div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Shop</h1>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							
-						</div>
-					</div>
-				</div>
-			</div> -->
-		<!-- End Hero Section -->
+		
 
 		
 
@@ -103,10 +88,10 @@
 						<a class="product-item" href="#">
 							<img src="<?=base_url()?>assets/asset/images/gambar_roti.jpg" class="img-fluid product-thumbnail">
 							<h3 class="product-title"><?php echo $data_roti->jenis_roti ?></h3>
-							<strong class="product-price"><?php echo $data_roti->harga ?></strong>
+							<strong class="product-price"><?php echo "Rp. ".number_format("$data_roti->harga",0,',','.') ?></strong>
 
 							<span class="icon-cross">
-								<img src="<?=base_url()?>assets/asset/images/cross.svg" class="img-fluid">
+								<img src="<?=base_url()?>assets/asset/images/cross.svg" class="img-fluid" onclick="location.href='<?php echo base_url('cmhs/pesanan'); ?>'">
 							</span>
 						</a>
 					</div> 
@@ -117,8 +102,6 @@
                     ?>
 					<!-- End Column 1 -->
 						
-					
-
 		      	</div>
 		    </div>
 		</div>

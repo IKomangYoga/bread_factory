@@ -154,27 +154,8 @@
 			return $hasil;	
 		}
 
-		// Manggil database roti
-		public function get_products()
-		{
-
-			$sql="select * from roti";
-			$query=$this->db->query($sql);
-			if ($query->num_rows()>0)
-			{
-				foreach ($query->result() as $row)
-				{
-					$hasil[]=$row;
-				}	
-			}
-			else
-			{
-				$hasil="Data Kosong";	
-			}
-			return $hasil;	
-
-		}
-
+		
+		
 		function tampildatastatus()
 		{
 			$sql="select * from status";
@@ -192,7 +173,7 @@
 			}
 			return $hasil;	
 		}
-
+		
         function simpandatastatus()
 		{
 			$Nama_pegawai_outlet=$this->input->post('Nama_pegawai_outlet');
@@ -205,9 +186,9 @@
 				$config['upload_path'] = './assets/fotostatus';
 				$config['allowed_types'] = 'jpeg|jpg|png';
 				$config['max_size'] = 1024;
-		
+				
 				$this->load->library('upload', $config);
-		
+				
 				if (!$this->upload->do_upload('foto')) {
 					echo "<script>alert('Upload Gagal, Silahkan Coba Lagi');</script>";
 					redirect('cmhs/status','refresh');
@@ -215,7 +196,7 @@
 					$foto = $this->upload->data('file_name');
 				}
 			}
-
+			
             $data=array(
 				'Nama_pegawai_outlet'=>$Nama_pegawai_outlet,
                 'PemilikStatus'=>$PemilikStatus,
@@ -224,10 +205,42 @@
                 'Deskripsi'=>$Deskripsi,
 				'foto'=>$foto,
 			);
-
+			
 			$this->db->insert('status',$data);
 			echo "<script>alert('Status Berhasil Diupload');</script>";
 			redirect('Cmhs/status','refresh');
 		}
+
+		// Manggil database roti
+		public function get_products()
+		{
+	
+			$sql="select * from roti";
+			$query=$this->db->query($sql);
+			if ($query->num_rows()>0)
+			{
+				foreach ($query->result() as $row)
+				{
+					$hasil[]=$row;
+				}	
+			}
+			else
+			{
+				$hasil="Data Kosong";	
+			}
+			return $hasil;	
+	
+		}
+
+		public function get_keranjang_utama($id_Pegawai_Outlet)
+		{
+			$this->db->where('id_Pegawai_Outlet', $id_Pegawai_Outlet);
+			$query = $this->db->get('keranjang');
+			if (!$query) {
+				echo $this->db->error(); // Check for database errors
+				return false;
+			}
+			return $query->result();
+		}
     }
-?>
+	?>
