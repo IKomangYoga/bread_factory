@@ -86,13 +86,13 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Masukan id</label>
-                                    <input type="text" class="form-control" id="id_Pegawai_Outlet" name="id_Pegawai_Outlet" placeholder="Masukkan Nim Anda" required>
+                                    <input type="text" class="form-control" id="id_pegawai_outlet" name="id_pegawai_outlet" placeholder="Masukkan Nim Anda" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Masukan Alamat</label>
-                                    <input type="text" class="form-control" id="Alamat_pegawai_outlet" name="No_Telepon" placeholder="Masukkan No Telepon Anda" required>
+                                    <input type="text" class="form-control" id="no_telepon" name="no_telepon" placeholder="Masukkan No Telepon Anda" required>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Masukan Nama</label>
-                                    <input type="text" class="form-control" id="Nama_pegawai_outlet" name="Nama" placeholder="Masukkan Nama_pegawai_outlet" required>
+                                    <input type="text" class="form-control" id="nama_pegawai_outlet" name="nama_pegawai_outlet" placeholder="Masukkan Nama_pegawai_outlet" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -116,7 +116,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                 <label for="username" class="form-label">Masukan Divisi</label> <br/>
-                                <select class="form-select" name="Divisi_pegawai_outlet">
+                                <select class="form-select" name="divisi_pegawai_outlet">
                                     <option value="">Pilih Divisi</option>
                                     <option value="outlet">Penjualan</option>
                                     <option value="CEO">Keuangan</option>                                    
