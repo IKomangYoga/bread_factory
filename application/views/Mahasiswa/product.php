@@ -77,24 +77,35 @@
 					</div>
                     
 		      		<!-- Start Column 1 -->
-                      <?php
+                    <?php
                         if (empty($hasil)) {
                             echo "Data Kosong";	
                         } else {
                             $no = 1;
                             foreach ($hasil as $data_roti): 
                     ?>
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="<?=base_url()?>assets/asset/images/gambar_roti.jpg" class="img-fluid product-thumbnail">
-							<h3 class="product-title"><?php echo $data_roti->jenis_roti ?></h3>
-							<strong class="product-price"><?php echo "Rp. ".number_format("$data_roti->harga",0,',','.') ?></strong>
+							<div class="col-12 col-md-4 col-lg-3 mb-5">
+								<form action="<?php echo site_url('cmhs/inputKeranjang');?>" method="post" id="myForm<?=$data_roti->id_roti?>">
+								<div class="product-item">
+									<img src="<?php echo base_url('assets/asset/images/gambar_roti.jpg') ?>" class="img-fluid product-thumbnail">
+									<h3 class="product-title"><?php echo $data_roti->jenis_roti?></h3>
+									<strong class="product-price"><?php echo "Rp. ".number_format("$data_roti->harga",0,',','.')?></strong>
 
-							<span class="icon-cross">
-								<img src="<?=base_url()?>assets/asset/images/cross.svg" class="img-fluid" onclick="location.href='<?php echo base_url('cmhs/pesanan'); ?>'">
-							</span>
-						</a>
-					</div> 
+									<input type="hidden" name="id_roti" value="<?php echo $data_roti->id_roti?>">
+									<p><?php echo $data_roti->id_roti?></p>
+
+									<input type="hidden" name="jumlah" value="1">
+
+									<span class="icon-cross" onclick="document.getElementById('myForm<?=$data_roti->id_roti?>').submit()">
+
+										<img src="<?php echo base_url('assets/asset/images/cross.svg');?>" class="img-fluid">
+									</span>
+									
+			
+
+							</div>
+								</form>
+							</div>
                     <?php
                             $no++;                                       
                             endforeach;
