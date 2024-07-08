@@ -6,7 +6,7 @@
 <div class="d-flex align-items-center justify-content-between">
   <a class="logo d-flex align-items-center">
     <img src="gambar/teslogo.png" alt="">
-    <span class="d-none d-lg-block" style="color: white;">PKL Finder</span>
+    <span class="d-none d-lg-block" style="color: white;"><s>PKL Finder</s> bread factory</span>
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
 </div><!-- End Logo -->
@@ -33,12 +33,12 @@
     <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
       <li>
         <a href="<?php echo base_url('cdaftarmhs/login')?>">
-          <i class="bi bi-circle"></i><span>Login Mahasiswa</span>
+          <i class="bi bi-circle"></i><span>Login outlet</span>
         </a>
       </li>
       <li>
         <a href="<?php echo base_url('Cdaftarcompany/logincompany')?>" class="active">
-          <i class="bi bi-circle"></i><span>Login Perusahaan</span>
+          <i class="bi bi-circle"></i><span>Login pabrik</span>
         </a>
       </li>
     </ul>
