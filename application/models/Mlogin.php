@@ -21,7 +21,7 @@
                     'Divisi_pegawai_outlet'=>$data->Divisi_pegawai_outlet,
 					'password'=>$data->password
 				);	
-				$this->session->set_userdata($array);
+				
                 echo "<script>alert('Login Berhasil');</script>";	
 				redirect('cadmin/dashboard','refresh');
 			}

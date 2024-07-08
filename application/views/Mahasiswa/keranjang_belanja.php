@@ -50,24 +50,6 @@
 				
 		</nav>
 		<!-- End Header/Navigation -->
-		
-		<h1>Keranjang Utama</h1>
-
-<table border="1">
-    <tr>
-        <th>ID Pegawai Outlet</th>
-        <th>ID Roti</th>
-        <th>Jumlah</th>
-    </tr>
-    
-    <?php foreach ($keranjang_utama as $row) {?>
-    <tr>
-        <td><?php echo $row->id_Pegawai_Outlet;?></td>
-        <td><?php echo $row->id_roti;?></td>
-        <td><?php echo $row->jumlah;?></td>
-    </tr>
-    <?php }?>
-</table>
 
 		<div class="untree_co-section before-footer-section">
             <div class="container">
@@ -85,21 +67,30 @@
                           <th class="product-remove">Aksi</th>
                         </tr>
                       </thead>
+                      <?php
+                        if (empty($keranjang)) {
+                            echo "Data Kosong";	
+                        } else {
+                            $no = 1;
+                            foreach ($keranjang as $row):
+                              
+                    ?>
                       <tbody>
                         <tr>
                           <td class="product-thumbnail">
                             <img src="images/product-1.png" alt="Image" class="img-fluid">
                           </td>
                           <td class="product-name">
-                            <h2 class="h5 text-black">Product 1</h2>
+                            <h2 class="h5 text-black"><?php echo $row['jenis_roti']; ?></h2>
+                            
                           </td>
-                          <td>$49.00</td>
+                          <td><?php echo $row['harga']; ?></td>
                           <td>
                             <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
                               <div class="input-group-prepend">
                                 <button class="btn btn-outline-black decrease" type="button">&minus;</button>
                               </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                              <input type="text" class="form-control text-center quantity-amount" value="<?php echo $row['jumlah']; ?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                               <div class="input-group-append">
                                 <button class="btn btn-outline-black increase" type="button">&plus;</button>
                               </div>
@@ -109,8 +100,11 @@
                           <td>$49.00</td>
                           <td><a href="#" class="btn btn-black btn-sm">Batal</a></td>
                         </tr>
-        
-                        
+                        <?php
+                            $no++;                                       
+                            endforeach;
+                        }
+                    ?>
                       </tbody>
                     </table>
                   </div>

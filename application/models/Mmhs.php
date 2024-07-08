@@ -232,14 +232,10 @@
 	
 		}
 
-		public function get_keranjang_utama($id_Pegawai_Outlet)
+		public function get_data_roti($id_roti)
 		{
-			$this->db->where('id_Pegawai_Outlet', $id_Pegawai_Outlet);
-			$query = $this->db->get('keranjang');
-			if (!$query) {
-				echo $this->db->error(); // Check for database errors
-				return false;
-			}
+			$this->db->where('id_roti', $id_roti);
+			$query = $this->db->get('roti');
 			return $query->result();
 		}
     }

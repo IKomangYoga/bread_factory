@@ -109,40 +109,25 @@
 			$this->load->view('Mahasiswa/users-profile',$data);
 		}
 
-		// Manggil roti yang ada di model
-		public function product()
-		{
-			$get_products['hasil']=$this->mmhs->get_products();
-			$this->load->view('Mahasiswa/product', $get_products);
-		}
-
 		
-
-		// Pergi ke Halaman Pesanan Outlet
-		public function pesanan()
-		{	
-			$get_products['hasil']=$this->mmhs->get_products();
-			$this->load->view('Mahasiswa/pesanan',$get_products);
-		}
 		
-
 		
 		public function history()
 		{
 			$data1=[
 				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
 			];
-
+			
 			$data=[
 			'header'=>$this->load->view('partial/header','',true),
 			'navbar'=>$this->load->view('partial/navbar',$data1,true),
 			'sidebarhistory'=>$this->load->view('partial/sidebarhistory','',true),
 			'footer'=>$this->load->view('partial/footer','',true),
 			'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
-			];
-			$this->load->view('Mahasiswa/pages-history',$data);
-		}
-
+		];
+		$this->load->view('Mahasiswa/pages-history',$data);
+	}
+	
 	public function messages()
 	{
 		$data1=[
@@ -158,7 +143,7 @@
 		];
 		$this->load->view('Mahasiswa/pages-messages',$data);
 	}
-
+	
 	public function cv()
 	{
 		$data1=[
@@ -183,27 +168,68 @@
 					echo "<script>alert('Email Berhasil Dikirim');</script>";
 					redirect('cmhs/perusahaan?id='.$_GET['id'],'refresh');
 				}
-		else
+				else
 				{
 					echo "<script>alert('Email Gagal Dikirim');</script>";
 					redirect('cmhs/perusahaan?id='.$_GET['id'],'refresh');
 				}
-	
-	}
-	
-
-        function prosesloginmhs()
+				
+			}
+			
+			
+		function prosesloginmhs()
 		{
-			$this->load->model('mloginmhs');
-			$this->mloginmhs->prosesloginmhs();
+				$this->load->model('mloginmhs');
+				$this->mloginmhs->prosesloginmhs();
 		}
-
+		
+		// Input Keranjang
+		public function inputKeranjang(){
+			// $id_keranjang  = $this->input->post('id_keranjang');
+			// $id_roti = $this->input->post('id_roti');
+			// $jumlah = $this->input->post('jumlah');
+			$data = $_POST;
+			// var_dump($data);
+			// die;
+			$this->load->model('Mkeranjang');
+			$data['id_Pegawai_Outlet'] = $this->session->userdata('id_Pegawai_Outlet');
+			$result = $this->db->get_where('keranjang',['id_Pegawai_Outlet'=>$data['id_Pegawai_Outlet'],'id_roti'=>$data['id_roti']]);
+			if($result->num_rows() > 0){
+				
+				$query=$result->row_array();
+				$data['jumlah']=$query['jumlah']+1;
+				$data['id_keranjang']=$query['id_keranjang'];
+				$this->Mkeranjang->updatekeranjang($data);
+			}
+			else{
+				$this->Mkeranjang->simpankeranjang($data);
+			}
+			
+			redirect('Cmhs/keranjang');
+		}
+		
+		// Tampil Keranjang
 		public function keranjang()
 		{
-			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
-			var_dump($id_Pegawai_Outlet); // Check if the value is set
-			$data['keranjang_utama'] = $this->mmhs->get_keranjang_utama($id_Pegawai_Outlet);
-			$this->load->view('Mahasiswa/keranjang_belanja', $data);
+			$this->load->model('mkeranjang');
+			$data['keranjang'] = $this->mkeranjang->getKeranjang($this->session->userdata('id_Pegawai_Outlet'));
+			$this->load->view('mahasiswa/keranjang_belanja', $data);
 		}
+		// Manggil roti yang ada di model
+		public function product()
+		{
+			$get_products['hasil']=$this->mmhs->get_products();
+			$this->load->view('Mahasiswa/product', $get_products);
+		}
+		
+			
+		// Pergi ke Halaman Pesanan Outlet
+		public function pesanan()
+		{	
+			$get_products['hasil']=$this->mmhs->get_products();
+			$this->load->view('Mahasiswa/pesanan',$get_products);
+		}
+		
     }
-?>
+
+	?>

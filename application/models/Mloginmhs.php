@@ -22,6 +22,7 @@
 					'password'=>$data->password
 				);	
 				$this->session->set_userdata($array);
+                
                 echo "<script>alert('Login Berhasil');</script>";	
 				redirect('cmhs/dashboard','refresh');
 			}
