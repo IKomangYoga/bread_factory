@@ -92,7 +92,7 @@
 									<strong class="product-price"><?php echo "Rp. ".number_format("$data_roti->harga",0,',','.')?></strong>
 
 									<input type="hidden" name="id_roti" value="<?php echo $data_roti->id_roti?>">
-									<p><?php echo $data_roti->id_roti?></p>
+									
 
 									<input type="hidden" name="jumlah" value="1">
 
