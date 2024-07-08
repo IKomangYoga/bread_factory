@@ -6,7 +6,7 @@
 <div class="d-flex align-items-center justify-content-between">
   <a class="logo d-flex align-items-center">
     <img src="gambar/teslogo.png" alt="">
-    <span class="d-none d-lg-block" style="color: white;">PKL Finder</span>
+    <span class="d-none d-lg-block" style="color: white;"> <s>PKL Finder</s> bread factory </span>
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
 </div><!-- End Logo -->
@@ -33,12 +33,12 @@
     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
         <a href="<?php echo base_url('cdaftarmhs/login')?>">
-          <i class="bi bi-circle"></i><span>Login Mahasiswa</span>
+          <i class="bi bi-circle"></i><span>Login Outlet</span>
         </a>
       </li>
       <li>
         <a href="<?php echo base_url('Cdaftarcompany/logincompany')?>">
-          <i class="bi bi-circle"></i><span>Login Perusahaan</span>
+          <i class="bi bi-circle"></i><span>Login Pabrik</span>
         </a>
       </li>
     </ul>
@@ -82,24 +82,24 @@
                 <div class="card-body">
                           <form method="POST" action="<?php echo base_url('cdaftarcompany/simpandaftarcompany') ?>">
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="Email_Perusahaan" name="Email" placeholder="Masukkan Email" required>
+                                    <label for="username" class="form-label">Divisi</label>
+                                    <input type="text" class="form-control" id="Email_Perusahaan" name="Divisi_pegawai_pabrik" placeholder="Masukkan Email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Nama Perusahaan</label>
-                                    <input type="text" class="form-control" id="Nama_Perusahaan" name="Nama_Perusahaan" placeholder="Masukkan Nama Perusahaan" required>
+                                    <label for="username" class="form-label">Nama Pegawai</label>
+                                    <input type="text" class="form-control" id="Nama_Perusahaan" name="Nama_pegawai_pabrik" placeholder="Masukkan Nama Perusahaan" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="Password" placeholder="Masukkan Password" required>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Alamat</label>
-                                    <input type="text" class="form-control" id="password" name="Alamat" placeholder="Masukkan Alamat" required>
+                                    <input type="text" class="form-control" id="password" name="Alamat_pegawai_pabrik" placeholder="Masukkan Alamat" required>
                                 </div>
                                 <div class="mb-3">
-                                <label for="password" class="form-label">Bidang Industri</label> <br/>
-                                <select name="Bidang_Industri" class="form-select">
+                                <label for="password" class="form-label">Jabatan</label> <br/>
+                                <select name="jabatan_pegawai_pabrik" class="form-select">
                                     <option value="">Pilih Bidang Industri</option>
                                     <option value="Industri Komputer">Industri Komputer</option>
                                     <option value="Industri Telekomunikasi">Industri Telekomunikasi</option>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">No Telepon</label>
-                                    <input type="text" class="form-control" id="password" name="No_Telepon" placeholder="Masukkan No Telepon" required>
+                                    <input type="text" class="form-control" id="password" name="No_hp_pegawai_pabrik" placeholder="Masukkan No Telepon" required>
                                 </div>
                                 <div class="d-grid gap-2">
                                     <button class="btn" style="background-color: #012970; color: white;" type="submit">Daftar</button>
