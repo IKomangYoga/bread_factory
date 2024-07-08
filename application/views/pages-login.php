@@ -91,6 +91,11 @@
                                 <div class="d-grid gap-2">
                                     <button class="btn" style="background-color: #012970; color: white;" type="submit">Masuk</button>
                                 </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn" style="background-color: #012970; color: white;" type="submit">Register
+                                      
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
