@@ -1,234 +1,163 @@
-<?=$header?>
-<body>
 
-<?=$navbarcompany?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
 
-<?=$sidebarcompany?>
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
 
-  <main id="main" class="main">
+		<!-- Bootstrap CSS -->
+		<link href="<?=base_url()?>assets/asset/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="<?=base_url()?>assets/asset/css/tiny-slider.css" rel="stylesheet">
+		<link href="<?=base_url()?>assets/asset/css/style.css" rel="stylesheet">
+		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+	</head>
 
-<div class="container-fluid md-5">
-    <div class="pagetitle">
-      <h1><?php echo $this->session->userdata('Nama_Perusahaan'); ?></h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-<!-- Default Tabs -->
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Preview</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Edit Data</button>
-                </li>
-              </ul>
-              <div class="tab-content pt-2" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <section class="section dashboard">
-        <div class="card">
-            <div class="card-body mt-3">
+	<body>
 
-              <!-- Slides with indicators -->
-              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                  <?php
-                          if(empty($this->session->userdata('foto1')))
-                          {
-                          ?>
-                            <img src="<?=base_url()?>/assets/fotocompany/no-image.jpg" height="500" width="100%" alt="Profile">
-                          <?php  
-                            } else{
-                              ?>
-                             <img src="<?=base_url()?>/assets/fotocompany/<?php echo $this->session->userdata('foto1');?>" height="683" width="100%" alt="Profile">
-                          <?php
-                            }
-                  ?>
-                  </div>
-                  <div class="carousel-item">
-                  <?php
-                          if(empty($this->session->userdata('foto2')))
-                          {
-                          ?>
-                            <img src="<?=base_url()?>/assets/fotocompany/no-image.jpg" height="500" width="100%" alt="Profile">
-                          <?php  
-                            } else{
-                              ?>
-                             <img src="<?=base_url()?>/assets/fotocompany/<?php echo $this->session->userdata('foto2');?>" height="683" width="100%" alt="Profile">
-                          <?php
-                            }
-                          ?>
-                  </div>
-                  <div class="carousel-item">
-                  <?php
-                          if(empty($this->session->userdata('foto3')))
-                          {
-                          ?>
-                            <img src="<?=base_url()?>/assets/fotocompany/no-image.jpg" height="500" width="100%" alt="Profile">
-                          <?php  
-                            } else{
-                              ?>
-                             <img src="<?=base_url()?>/assets/fotocompany/<?php echo $this->session->userdata('foto3');?>" height="683" width="100%" alt="Profile">
-                          <?php
-                            }
-                          ?>
-                  </div>
-              </div>
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Bread Factory<span>.</span></a>
 
-              </div><!-- End Slides with indicators -->
-                  
-              </section>
-              
-              <section>
-              <div class="card">
-                <div class="container-fluid mt-3">
-                      <div class="card-body">
-                        <div class="card-title">             
-                          <center><h2><?php echo $this->session->userdata('Nama_Perusahaan'); ?></h2></center>
-                        </div>
-                        <center><?php echo $dataperusahaan->Deskripsi ?></center>
-                      </div>
-                </div>
-              </div><!-- End Slides with indicators -->
-              </section>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-              <section class="section contact">
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item active">
+							<a class="nav-link" href="<?php echo base_url('ccompany/dashboard-company'); ?>">Home</a>
+						</li>
+            <li><a class="nav-link" href="<?php echo base_url('company/pesanan'); ?>">Pesanan</a></li>
+						<li><a class="nav-link" href="<?php echo base_url('ccompany/tambah product'); ?>">Product</a></li>
 
-              <div class="row gy-4">
+					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+						<li><a class="nav-link" href="<?php echo base_url('ccompany/profile'); ?>"><img src="<?=base_url()?>assets/asset/images/user.svg"></a></li>
+					</ul>
+				</div>
+			</div>
+				
+		</nav>
+		<!-- End Header/Navigation -->
 
-                <div class="">
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Bread Factory <span clsas="d-block">Roti Enak </span></h1>
+								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img src="<?=base_url()?>assets/asset/images/roti.png" class="img-fluid">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
 
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="info-box card">
-                        <i class="bi bi-geo-alt"></i>
-                        <h3>Address</h3>
-                        <p><?php echo $dataperusahaan->Alamat ?></p>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="info-box card">
-                        <i class="bi bi-telephone"></i>
-                        <h3>Call Us</h3>
-                        <p><?php echo $this->session->userdata('No_Telepon'); ?></p>
-                      </div>
-                    </div>
-                    <div class="">
-                      <center><div class="info-box card">
-                        <i class="bi bi-envelope"></i>
-                        <h3>Email Us</h3>
-                        <p><?php echo $dataperusahaan->Email ?></p>
-                        </center>
-                      </div>
-                    </div>
-                  </div>
+		
 
-                </div>
-              </section>
-            </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                   <!-- Profile Edit Form -->
-                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                      <i>Upload Your Company Pictures</i>
-                          </button>
-                          <div class="modal fade" id="basicModal" tabindex="-1">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title">Upload Photo</h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  
-                                  <?php echo form_open_multipart('ccompany/simpanfotocompany'); ?>
-                                  <div class="row mb-3">
-                                    <div class="col-sm-10">
-                                      <input class="form-control" type="file" name="foto1" id="formFile">
-                                    </div>
-                                  </div>
+		<!-- Start About Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<h2 class="section-title">Tentang Kami</h2>
+						<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+						
+						<div class="row my-5">
+							<h2 class="section-title">Our Service</h2>
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="<?=base_url()?>assets/asset/images/truck.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Fast &amp; Free Shipping</h3>
+									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+								</div>
+							</div>
 
-                                  <div class="row mb-3">                                  
-                                    <div class="col-sm-10">
-                                      <input class="form-control" type="file" name="foto2" id="formFile">
-                                    </div>
-                                  </div>
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="<?=base_url()?>assets/asset/images/bag.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Easy to Shop</h3>
+									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+								</div>
+							</div>
 
-                                  <div class="row mb-3">                                  
-                                    <div class="col-sm-10">
-                                      <input class="form-control" type="file" name="foto3" id="formFile">
-                                    </div>
-                                  </div>
-                                  
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="<?=base_url()?>assets/asset/images/support.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>24/7 Support</h3>
+									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+								</div>
+							</div>
 
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                  <button type="submit" class="btn btn-primary">Save changes</button>
-                                  <?php echo form_close(); ?>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                   
-                   <form method="post" action ="<?php echo base_url('Ccompany/editdata')?>">
-                   <input type="hidden" name="Id_Perusahaan"value="<?php echo $dataperusahaan->Id_Perusahaan ?>">
-                    <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="<?php echo $dataperusahaan->Email ?>">
-                      </div>
-                    </div>
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="<?=base_url()?>assets/asset/images/return.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Hassle Free Returns</h3>
+									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+								</div>
+							</div>
 
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">No. Telepon</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="No_Telepon" type="text" class="form-control" id="No" value="<?php echo $dataperusahaan->No_Telepon ?>">
-                      </div>
-                    </div>
+						</div>
+					</div>
 
-                    <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
-                      <div class="col-md-8 col-lg-9">
-                        <textarea name="Alamat" class="form-control" id="about" style="height: 100px"><?php echo $dataperusahaan->Alamat ?></textarea>
-                      </div>
-                    </div>
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img src="<?=base_url()?>assets/asset/images/why-choose-us-img.jpg" alt="Image" class="img-fluid">
+						</div>
+					</div>
 
-                    <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Deskripsi</label>
-                      <div class="col-md-8 col-lg-9">
-                        <textarea name="Deskripsi" class="form-control" id="about" style="height: 100px"><?php echo $dataperusahaan->Deskripsi ?></textarea>
-                      </div>
-                    </div>
-                
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form><!-- End Profile Edit Form -->
-              </div><!-- End Default Tabs -->
-    
-</div>
-    </main><!-- End #main -->
+				</div>
+			</div>
+		</div>
+		<!-- End About Us Section -->
 
-  <?=$footer?>
 
-</body>
+		
+
+		
+		<!-- Start Footer Section -->
+		<footer class="footer-section">
+			<div class="container relative">
+				<div class="border-top copyright">
+					<div class="row pt-4">
+						<div class="col-lg-6">
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Kelompok Bread</a>
+            				</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</footer>
+		<!-- End Footer Section -->	
+
+
+		<script src="<?=base_url()?>assets/asset/js/bootstrap.bundle.min.js"></script>
+		<script src="<?=base_url()?>assets/asset/js/tiny-slider.js"></script>
+		<script src="<?=base_url()?>assets/asset/js/custom.js"></script>
+	</body>
 
 </html>
