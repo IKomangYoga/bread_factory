@@ -185,12 +185,7 @@
 		
 		// Input Keranjang
 		public function inputKeranjang(){
-			// $id_keranjang  = $this->input->post('id_keranjang');
-			// $id_roti = $this->input->post('id_roti');
-			// $jumlah = $this->input->post('jumlah');
 			$data = $_POST;
-			// var_dump($data);
-			// die;
 			$this->load->model('Mkeranjang');
 			$data['id_Pegawai_Outlet'] = $this->session->userdata('id_Pegawai_Outlet');
 			$result = $this->db->get_where('keranjang',['id_Pegawai_Outlet'=>$data['id_Pegawai_Outlet'],'id_roti'=>$data['id_roti']]);
