@@ -33,7 +33,7 @@
     <ul id="icons-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
       <li>
         <a href="<?php echo base_url('cdaftarmhs/login')?>" class="active">
-          <i class="bi bi-circle"></i><span>Login Mahasiswa</span>
+          <i class="bi bi-circle"></i><span>Login Outlet</span>
         </a>
       </li>
       <li>
@@ -77,7 +77,7 @@
                 <div class="col-md-5">
                     <div class="card">
                         <div class="card-header"  style="background-color: #012970; text-align: center;">
-                            <b><span style="font-size: x-large; color: white; ">Login Mahasiswa</b></div>
+                            <b><span style="font-size: x-large; color: white; ">Login Outlet</b></div>
                         <div class="card-body">
                             <form  action="<?php echo base_url('cdaftarmhs/prosesloginmhs') ?>" method="POST">
                                 <div class="mb-3">
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="d-grid gap-2">
                                     <button class="btn" style="background-color: #012970; color: white;" type="submit">Register
-                                      
+
                                     </button>
                                 </div>
                             </form>
