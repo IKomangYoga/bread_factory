@@ -9,73 +9,33 @@
                 <h2>PKL Finder</h2>
                 <p>Your Account has been Successfully Registered</p>
             </html>';
-            $id_Pegawai_Outlet =$this->input->post('id_Pegawai_Outlet');
-			$Alamat_pegawai_outlet=$this->input->post('Alamat_pegawai_outlet');
-            $Nama_pegawai_outlet=$this->input->post('Password');
-            $Jurusan=$this->input->post('Jurusan');
-            $Alamat=$this->input->post('Alamat');
-            $Prodi=$this->input->post('Prodi');
-			$Email=$this->input->post('Email');
-			$No_Telepon=$this->input->post('No_Telepon');
-			$Cv=$_FILES['Cv'];
-			if ($Cv=''){} 
-			else{
-				$config['upload_path']		= './assets/foto';
-				$config['allowed_types']	= 'jpeg|pdf|jpg';
-				$config['max_size']			= 1024*1;
-
-
-				$this->load->library('upload',$config);
-				if (!$this->upload->do_upload('Cv')){
-					echo "<script>alert('Upload CV Gagal, Silahkan Coba Lagi');</script>";
-					redirect('cdaftarmhs/register','refresh');
-				} else {
-					$Cv=$this->upload->data('file_name');
-				}
-			}
-			
-			$Jenis_Kelamin=$this->input->post('Jenis_Kelamin');
-			$Bukti_Ktm=$_FILES['Bukti_Ktm'];
-			if ($Bukti_Ktm='')
-			{} else{
-				$config['upload_path']		= './assets/foto';
-				$config['allowed_types']	= 'jpeg|pdf|jpg';
-				$config['max_size']			= 1024*1;
-
-				$this->load->library('upload',$config);
-				if (!$this->upload->do_upload('Bukti_Ktm')){
-					echo "<script>alert('Upload KTM Gagal, Silahkan Coba Lagi');</script>";
-					redirect('cdaftarmhs/register','refresh');
-				} else {
-					$Bukti_Ktm=$this->upload->data('file_name');
-				}
-			}
+            $id_pegawai_outlet =$this->input->post('id_pegawai_outlet');
+			$no_telepon=$this->input->post('no_telepon');
+            $nama_pegawai_outlet=$this->input->post('nama_pegawai_outlet');
+            $jabatan_pegawa_outlet=$this->input->post('jabatan_pegawa_outlet');
+            $divisi_pegawai_outlet=$this->input->post('divisi_pegawai_outlet');
+            $password=$this->input->post('password');
 
             $data=array(
-                'Nim'=>$Nim,
-				'Nama_pegawai_outlet'=>$Nama_pegawai_outlet,
-                'Password'=>$Password,
-                'Jurusan'=>$Jurusan,
-                'Alamat'=>$Alamat,
-                'Prodi'=>$Prodi,
-				'Email'=>$Email,
-				'No_Telepon'=>$No_Telepon,
-				'Cv'=>$Cv,
-				'Jenis_Kelamin'=>$Jenis_Kelamin,
-				'Bukti_Ktm'=>$Bukti_Ktm
+				'id_Pegawai_Outlet' => $id_pegawai_outlet,
+				'Alamat_pegawai_outlet' => $no_telepon,
+				'Nama_pegawai_outlet' => $nama_pegawai_outlet,
+				'jabatan_pegawa_outlet' => $jabatan_pegawa_outlet,
+				'Divisi_pegawai_outlet' => $divisi_pegawai_outlet,
+				'password' => $password
 			);
 			
-			$fieldName = "Nim";
+			$fieldName = "id_Pegawai_Outlet";
 			$tableName = "pegawai_outlet";
-			$this->db->where($fieldName, $Nim);
+			$this->db->where($fieldName, $fieldName);
 			$query = $this->db->get($tableName);
 	
 			// If there is a matching record, it's a duplicate
-			if ($query->num_rows() == 0 && strpos($Email, "@gmail.com") !== false) {
+			if ($query->num_rows() == 0 /*&& strpos($Email, "@gmail.com") !== false*/) {
 				$this->db->insert('pegawai_outlet',$data);
 				if (isset($data))
 				{
-					$this->send_mail($Email,$subject,$message);
+					//$this->send_mail($Email,$subject,$message);
 					redirect('cdaftarmhs/login','refresh');
 				}
 				else
