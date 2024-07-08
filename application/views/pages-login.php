@@ -33,11 +33,7 @@
     <ul id="icons-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
       <li>
         <a href="<?php echo base_url('cdaftarmhs/login')?>" class="active">
-<<<<<<< HEAD
-          <i class="bi bi-circle"></i><span>Login Outlet</span>
-=======
           <i class="bi bi-circle"></i><span>Login outlet</span>
->>>>>>> 571db8b8812dbc87220e816808f79a5b3d84c53f
         </a>
       </li>
       <li>
