@@ -85,6 +85,7 @@
                             
                           </td>
                           <td><?php echo $row['harga']; ?></td>
+                          
                           <td>
                             <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
                               <div class="input-group-prepend">
@@ -97,8 +98,10 @@
                             </div>
         
                           </td>
+                          
                           <td>$49.00</td>
                           <td><a href="#" class="btn btn-black btn-sm">Batal</a></td>
+                        
                         </tr>
                         <?php
                             $no++;                                       
