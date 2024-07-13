@@ -13,7 +13,7 @@
 			$no_telepon=$this->input->post('no_telepon');
             $nama_pegawai_outlet=$this->input->post('nama_pegawai_outlet');
             $jabatan_pegawa_outlet=$this->input->post('jabatan_pegawa_outlet');
-            $divisi_pegawai_outlet=$this->input->post('divisi_pegawai_outlet');
+            $Divisi_pegawai_outlet=$this->input->post('Divisi_pegawai_outlet');
             $password=$this->input->post('password');
 
             $data=array(
@@ -21,7 +21,7 @@
 				'Alamat_pegawai_outlet' => $no_telepon,
 				'Nama_pegawai_outlet' => $nama_pegawai_outlet,
 				'jabatan_pegawa_outlet' => $jabatan_pegawa_outlet,
-				'Divisi_pegawai_outlet' => $divisi_pegawai_outlet,
+				'Divisi_pegawai_outlet' => $Divisi_pegawai_outlet,
 				'password' => $password
 			);
 			
