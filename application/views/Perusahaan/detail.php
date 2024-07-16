@@ -1,10 +1,19 @@
 <?php
-// Mengambil data pesanan dari database
+// Establish database connection
+include 'db_connect.php'; // Ensure this file contains your database connection code
+
+// Replace with actual ID
+$id_pegawai_outlet = 'id_pegawai_outlet_anda'; // This should be dynamically set
+
+// Fetch orders from the database
 $sql = "SELECT m.id_Pegawai_Outlet, r.id_roti, r.nama_roti, r.harga, m.jumlah_pesanan
         FROM memesan m
         JOIN roti r ON m.id_roti = r.id_roti
-        WHERE m.id_Pegawai_Outlet = 'id_pegawai_outlet_anda'"; // Sesuaikan dengan ID pegawai outlet yang benar
-$result = $conn->query($sql);
+        WHERE m.id_Pegawai_Outlet = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('s', $id_pegawai_outlet);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!doctype html>
@@ -74,9 +83,9 @@ $result = $conn->query($sql);
               echo "<tr>
                       <td><img src='path/to/images/{$row['id_roti']}.png' alt='Image' class='img-fluid' width='100'></td>
                       <td>{$row['nama_roti']}</td>
-                      <td>\${$row['harga']}</td>
+                      <td>Rp" . number_format($row['harga'], 0, ',', '.') . "</td>
                       <td>{$row['jumlah_pesanan']}</td>
-                      <td>\${$total}</td>
+                      <td>Rp" . number_format($total, 0, ',', '.') . "</td>
                       <td><a href='#' class='btn btn-danger btn-sm'>Batal</a></td>
                     </tr>";
           }
@@ -91,7 +100,7 @@ $result = $conn->query($sql);
       <a href="product.php" class="btn btn-outline-dark">Lanjut Berbelanja</a>
     </div>
     <div class="col-md-6 text-right">
-      <h4>Total Belanja: $<?php echo $total_belanja; ?></h4>
+      <h4>Total Belanja: Rp<?php echo number_format($total_belanja, 0, ',', '.'); ?></h4>
       <a href="checkout.php" class="btn btn-dark">Lanjut ke Checkout</a>
     </div>
   </div>
@@ -110,5 +119,6 @@ $result = $conn->query($sql);
 </html>
 
 <?php
+$stmt->close();
 $conn->close();
 ?>
