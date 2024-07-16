@@ -1,112 +1,48 @@
 <?=$header?>
 
-<!-- ======= Header ======= -->
-<header id="header" class="header fixed-top d-flex align-items-center">
 
-<div class="d-flex align-items-center justify-content-between">
-  <a class="logo d-flex align-items-center">
-    <img src="gambar/teslogo.png" alt="">
-    <span class="d-none d-lg-block" style="color: white;"><s>PKL Finder</s> bread factory</span>
-  </a>
-  <i class="bi bi-list toggle-sidebar-btn"></i>
-</div><!-- End Logo -->
-
-
-      </ul><!-- End Profile Dropdown Items -->
-    </li><!-- End Profile Nav -->
-
-  </ul>
-</nav><!-- End Icons Navigation -->
-
-</header><!-- End Header -->
-<body>
-
-<!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
-
-<ul class="sidebar-nav" id="sidebar-nav">
-
-<li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-box-arrow-in-right"></i><span>Login</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="icons-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="<?php echo base_url('cdaftarmhs/login')?>" class="active">
-          <i class="bi bi-circle"></i><span>Login outlet</span>
-        </a>
-      </li>
-      <li>
-        <a href="<?php echo base_url('Cdaftarcompany/logincompany')?>">
-          <i class="bi bi-circle"></i><span>Login Pabrik</span>
-        </a>
-      </li>
-    </ul>
-  </li><!-- End Components Nav -->
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-card-list"></i><span>Registration</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="<?php echo base_url('cdaftarmhs/register') ?>">
-          <i class="bi bi-circle"></i><span>Register Outlet</span>
-        </a>
-      </li>
-      <li>
-        <a href="<?php echo base_url('Cdaftarcompany/registercompany') ?>">
-          <i class="bi bi-circle"></i><span>Register Perusahaan</span>
-        </a>
-      </li>
-    </ul>
-  </li><!-- End Charts Nav -->
-
-  </ul>
-
-</ul>
-
-</aside><!-- End Sidebar-->
-
-  <main>
-    <div class="container">
-
-      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <div class="card">
-                        <div class="card-header"  style="background-color: #012970; text-align: center;">
-                            <b><span style="font-size: x-large; color: white; ">Login Outlet</b></div>
-                        <div class="card-body">
-                            <form  action="<?php echo base_url('cdaftarmhs/prosesloginmhs') ?>" method="POST">
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">NIM</label>
-                                    <input type="text" class="form-control" id="username" name="Username" placeholder="Masukkan NIM" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="Password" placeholder="Masukkan Password" required>
-                                </div>
-                                <div class="d-grid gap-2">
-                                    <button class="btn" style="background-color: #012970; color: white;" type="submit">Masuk</button>
-                                </div>
-                                <div class="d-grid gap-2">
-                                    <button class="btn" style="background-color: #012970; color: white;" type="submit">Register
-
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+  <!-- Start form login -->
+    <div class="bg">
+      <div class="container-fluid">
+        <div class="row h-100">
+          <div class="col-6 d-flex align-items-center justify-content-start" >
+            <div class=" mx-5 ">
+              <h1 >Selamat Datang</h1>
+              <h5 >Silahkan login terlebih dahulu</h5>
             </div>
           </div>
-    </section>
-
+          <div class="h-100 col-6 d-flex justify-content-center align-items-center pt-5">
+            <div class="col-lg-8 ">
+              <h2 class="text-center py-3 d-flex align-items-center justify-content-center">Masukan Data</h2>
+              <form name="formlogin" method="post" action="<?php echo base_url('cdaftarmhs/prosesloginmhs')?>">
+              
+              
+                <div class="mx-3 my-4">
+                  <label for="username" class="form-label">ID</label>
+                  <input type="text" class="form-control" id="username" name="Username" placeholder="Masukan ID Pengguna" required>                                                                                                                                                                          
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="Password" placeholder="Masukkan Password" required>
+                   <!--letak dropdown  -->
+                    <label for="role" class="form-label">Login sebagai</label>
+                    <select class="form-control mb-2" name="role" id="role" required onchange="if (this.value === 'perusahaan') window.location.href = '<?php echo base_url('Cdaftarcompany/logincompany');?>';">
+                      <option value="" disabled selected>Masuk sebagai</option>
+                      <option>Outlet</option>
+                      <option value="perusahaan">Perusahaan Bread Factory</option>
+                    </select>
+                  <!-- bagian button -->
+                  <div class="pt-3 align-items-center justify-content-between align d-flex">
+                    <a href="<?php echo base_url('cdaftarmhs/register');?>">Klik Untuk Daftar</a>
+                    <input type="submit" value="Masuk " class="btn btn-success" id="login">
+                  </div>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </main><!-- End #main -->
-
+  <!-- End login form -->
   <?=$footer?>
 
 </body>

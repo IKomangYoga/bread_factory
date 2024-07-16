@@ -14,6 +14,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="<?=base_url()?>assets/asset/css/tiny-slider.css" rel="stylesheet">
 		<link href="<?=base_url()?>assets/asset/css/style.css" rel="stylesheet">
+		
 		<title>Bread Factory</title>
 	</head>
 
@@ -34,16 +35,15 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="<?php echo base_url('cmhs/dashboard'); ?>">Home</a>
 						</li>
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
+						
 						<li><a class="nav-link" href="about.html">About us</a></li>
 						<li><a class="nav-link" href="services.html">Services</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/profile'); ?>"><img src="<?=base_url()?>assets/asset/images/user.svg"></a></li>
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/keranjang'); ?>"><img src="<?=base_url()?>assets/asset/images/cart.svg"></a></li>
+						<li><a class="nav-link" href="<?php echo base_url('cdaftarmhs/login'); ?>"><img src="<?=base_url()?>assets/asset/images/user.svg"></a></li>
+						
 					</ul>
 				</div>
 			</div>
