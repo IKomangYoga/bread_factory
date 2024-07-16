@@ -13,7 +13,7 @@
           <div class="h-100 col-6 d-flex justify-content-center align-items-center pt-5">
             <div class="col-lg-8 ">
               <h2 class="text-center py-3 d-flex align-items-center justify-content-center">Masukan Data</h2>
-              <form name="formlogin" method="post" action="<?php echo base_url('cdaftarmhs/prosesloginmhs')?>">
+              <form name="formlogin" method="post" action="<?php echo base_url('cdaftarcompany/proseslogincompany')?>">
               
               
                 <div class="mx-3 my-4">
