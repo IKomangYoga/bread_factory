@@ -108,9 +108,6 @@
 			];
 			$this->load->view('Mahasiswa/users-profile',$data);
 		}
-
-		
-		
 		
 		public function history()
 		{
@@ -183,7 +180,7 @@
 				$this->mloginmhs->prosesloginmhs();
 		}
 		
-		// Input Keranjang
+		// tambah data Keranjang
 		public function inputKeranjang(){
 			$data = $_POST;
 			$this->load->model('Mkeranjang');
@@ -223,6 +220,19 @@
 		{	
 			$get_products['hasil']=$this->mmhs->get_products();
 			$this->load->view('Mahasiswa/pesanan',$get_products);
+		}
+
+		public function insertpesanan()
+		{
+			$data = $_POST;
+			$this->load->model('Mpesanan');
+		}
+
+		public function delete_keranjang($id_keranjang)
+		{
+			$this->load->model('Mkeranjang');
+			$this->Mkeranjang->hapuskeranjang($id_keranjang);
+			redirect('Cmhs/keranjang');
 		}
 		
     }

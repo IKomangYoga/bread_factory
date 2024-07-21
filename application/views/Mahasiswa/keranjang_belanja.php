@@ -31,7 +31,7 @@
 
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item active">
+						<li >
 							<a class="nav-link" href="<?php echo base_url('cmhs/dashboard'); ?>">Home</a>
 						</li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
@@ -54,7 +54,7 @@
 		<div class="untree_co-section before-footer-section">
             <div class="container">
               <div class="row mb-5">
-                <form class="col-md-12" method="post">
+                <form class="col-md-12" action="<?= base_url('Cmhs/insertpesanan'); ?>" method="post">
                   <div class="site-blocks-table">
                     <table class="table">
                       <thead>
@@ -67,47 +67,37 @@
                           <th class="product-remove">Aksi</th>
                         </tr>
                       </thead>
+                      <?php $total_price = 0;?>
                       <?php
-                        if (empty($keranjang)) {
-                            echo "Data Kosong";	
-                        } else {
-                            $no = 1;
-                            foreach ($keranjang as $row):
-                              
-                    ?>
-                      <tbody>
-                        <tr>
-                          <td class="product-thumbnail">
-                            <img src="images/product-1.png" alt="Image" class="img-fluid">
-                          </td>
-                          <td class="product-name">
-                            <h2 class="h5 text-black"><?php echo $row['jenis_roti']; ?></h2>
-                            
-                          </td>
-                          <td><?php echo $row['harga']; ?></td>
-                          
-                          <td>
-                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                              <div class="input-group-prepend">
-                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                              </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="<?php echo $row['jumlah']; ?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                              <div class="input-group-append">
-                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                              </div>
-                            </div>
-        
-                          </td>
-                          
-                          <td>$49.00</td>
-                          <td><a href="#" class="btn btn-black btn-sm">Batal</a></td>
-                        
-                        </tr>
-                        <?php
-                            $no++;                                       
-                            endforeach;
-                        }
-                    ?>
+                      foreach ($keranjang as $row):
+                          $total_harga = $row['harga'] * $row['jumlah'];
+                          $total_price += $total_harga;
+                      ?>
+                      
+                          <tr>
+                              <td class="product-thumbnail">
+                                  <img src="images/product-1.png" alt="Image" class="img-fluid">
+                              </td>
+                              <td class="product-name">
+                                  <h2 class="h5 text-black"><?php echo $row['jenis_roti']; ?></h2>
+                              </td>
+                              <td>Rp.<?php echo number_format($row['harga'], 0, ',', '.'); ?></td>
+                              <!-- <td>Rp.<?php echo $row['harga']; ?></td> -->
+                              <td>
+                                  <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                                      <div class="input-group-prepend">
+                                          <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                                      </div>
+                                      <input type="text" class="form-control text-center quantity-amount" value="<?php echo $row['jumlah']; ?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                      <div class="input-group-append">
+                                          <button class="btn btn-outline-black increase" type="button">&plus;</button>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td>Rp.<?php echo number_format($total_harga, 0, ',', '.'); ?></td>
+                              <td><a href="<?= base_url('Cmhs/delete_keranjang/'.$row['id_keranjang']) ?>" class="btn btn-danger btn-sm">Batal</a></td>
+                          </tr>
+                      <?php endforeach; ?>
                       </tbody>
                     </table>
                   </div>
@@ -121,7 +111,7 @@
                       <button class="btn btn-black btn-sm btn-block">Update Cart</button>
                     </div> -->
                     <div class="col-md-6">
-                      <button class="btn btn-outline-black btn-sm btn-block">Lanjut Berbelanja</button>
+                        <button class="btn btn-outline-black btn-sm btn-block" onclick="window.location.href='<?php echo base_url('Cmhs/product'); ?>'">Lanjut Berbelanja</button>
                     </div>
                   </div>
                   <!-- <div class="row">
@@ -138,6 +128,7 @@
                   </div> -->
                 </div>
                 <div class="col-md-6 pl-5">
+                
                   <div class="row justify-content-end">
                     <div class="col-md-7">
                       <div class="row">
@@ -158,7 +149,7 @@
                           <span class="text-black">Total</span>
                         </div>
                         <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
+                          <strong class="text-black">Rp.<?= number_format($total_price, 0, ',', '.');?></strong>
                         </div>
                       </div>
         

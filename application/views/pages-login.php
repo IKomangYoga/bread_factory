@@ -44,6 +44,9 @@
     </div>
   <!-- End login form -->
   <?=$footer?>
+  <script src="<?=base_url()?>assets/asset/js/bootstrap.bundle.min.js"></script>
+		<script src="<?=base_url()?>assets/asset/js/tiny-slider.js"></script>
+		<script src="<?=base_url()?>assets/asset/js/custom.js"></script>
 
 </body>
 

@@ -32,10 +32,10 @@
 
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item active">
+						<li>
 							<a class="nav-link" href="<?php echo base_url('cmhs/dashboard'); ?>">Home</a>
 						</li>
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
+						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
 						<li><a class="nav-link" href="about.html">About us</a></li>
 						<li><a class="nav-link" href="services.html">Services</a></li>
