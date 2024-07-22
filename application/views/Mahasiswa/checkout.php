@@ -104,66 +104,9 @@
 		              </div>
 		            </div>
 
-		            <div class="form-group mt-3">
-		              <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
-		            </div>
-
-		            <div class="form-group row">
-		              <div class="col-md-6">
-		                <label for="c_state_country" class="text-black">State / Country <span class="text-danger">*</span></label>
-		                <input type="text" class="form-control" id="c_state_country" name="c_state_country">
-		              </div>
-		              <div class="col-md-6">
-		                <label for="c_postal_zip" class="text-black">Posta / Zip <span class="text-danger">*</span></label>
-		                <input type="text" class="form-control" id="c_postal_zip" name="c_postal_zip">
-		              </div>
-		            </div>
-
-		            <div class="form-group row mb-5">
-		              <div class="col-md-6">
-		                <label for="c_email_address" class="text-black">Email Address <span class="text-danger">*</span></label>
-		                <input type="text" class="form-control" id="c_email_address" name="c_email_address">
-		              </div>
-		              <div class="col-md-6">
-		                <label for="c_phone" class="text-black">Phone <span class="text-danger">*</span></label>
-		                <input type="text" class="form-control" id="c_phone" name="c_phone" placeholder="Phone Number">
-		              </div>
-		            </div>
-
-		            <div class="form-group">
-		              <label for="c_create_account" class="text-black" data-bs-toggle="collapse" href="#create_an_account" role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1" id="c_create_account"> Create an account?</label>
-		              <div class="collapse" id="create_an_account">
-		                <div class="py-2 mb-4">
-		                  <p class="mb-3">Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-		                  <div class="form-group">
-		                    <label for="c_account_password" class="text-black">Account Password</label>
-		                    <input type="email" class="form-control" id="c_account_password" name="c_account_password" placeholder="">
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-
-
-		            <div class="form-group">
-		              <label for="c_ship_different_address" class="text-black" data-bs-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" aria-controls="ship_different_address"><input type="checkbox" value="1" id="c_ship_different_address"> Ship To A Different Address?</label>
+		            <div class="form-group">		              
 		              <div class="collapse" id="ship_different_address">
 		                <div class="py-2">
-
-		                  <div class="form-group">
-		                    <label for="c_diff_country" class="text-black">Country <span class="text-danger">*</span></label>
-		                    <select id="c_diff_country" class="form-control">
-		                      <option value="1">Select a country</option>    
-		                      <option value="2">bangladesh</option>    
-		                      <option value="3">Algeria</option>    
-		                      <option value="4">Afghanistan</option>    
-		                      <option value="5">Ghana</option>    
-		                      <option value="6">Albania</option>    
-		                      <option value="7">Bahrain</option>    
-		                      <option value="8">Colombia</option>    
-		                      <option value="9">Dominican Republic</option>    
-		                    </select>
-		                  </div>
-
 
 		                  <div class="form-group row">
 		                    <div class="col-md-6">
@@ -246,9 +189,9 @@
 
                             <tr>
 
-                                <td> <?php echo $row['id_roti']; ?> <strong class="mx-2">x</strong> <?php echo $row['jumlah']; ?></td>
+                                <td> <?php echo $row['id_Pegawai_Outlet']; ?> <strong class="mx-2">x</strong> <?php echo $row['jumlah_pesanan']; ?></td>
 
-                                <td><?php echo $row['id_Pegawai_Outlet']; ?></td>
+                                <td>Total</td>
 
                             </tr>
 
@@ -268,35 +211,51 @@
 		                  </tbody>
 		                </table>
 
-		                <div class="border p-3 mb-3">
-		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
-
-		                  <div class="collapse" id="collapsebank">
-		                    <div class="py-2">
-		                      <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-		                    </div>
-		                  </div>
-		                </div>
-
-		                <div class="border p-3 mb-3">
-		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
-
-		                  <div class="collapse" id="collapsecheque">
-		                    <div class="py-2">
-		                      <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-		                    </div>
-		                  </div>
-		                </div>
+		                
 
 		                <div class="border p-3 mb-5">
-		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
+		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Form Pembayaran</a></h3>
 
 		                  <div class="collapse" id="collapsepaypal">
 		                    <div class="py-2">
 		                      <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
 		                    </div>
+                            
 		                  </div>
 		                </div>
+                        <!-- test -->
+                        <div class="border p-3 mb-5">
+                        <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Form Pembayaran</a></h3>
+
+                        <div class="collapse" id="collapsepaypal">
+                            <div class="py-2">
+                            <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                            <form action="<?php echo base_url('payment/process');?>" method="post">
+                                <div class="form-group">
+                                <label for="order_id">Order ID:</label>
+                                <input type="text" class="form-control" id="order_id" name="order_id" required>
+                                </div>
+                                <div class="form-group">
+                                <label for="payment_amount">Payment Amount:</label>
+                                <input type="number" class="form-control" id="payment_amount" name="payment_amount" required>
+                                </div>
+                                <div class="form-group">
+                                <label for="payment_method">Payment Method:</label>
+                                <select class="form-control" id="payment_method" name="payment_method" required>
+                                    <option value="">Select Payment Method</option>
+                                    <option value="bank_transfer">Bank Transfer</option>
+                                    <option value="credit_card">Credit Card</option>
+                                    <!-- Add more payment methods as needed -->
+                                </select>
+                                </div>
+                                <br>
+                                    <button type="submit" class="btn btn-black btn-lg py-3 btn-block">Make Payment</button>
+                               
+                                
+                            </form>
+                            </div>
+                        </div>
+                        </div>
 
 		                <div class="form-group">
 		                  <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Place Order</button>

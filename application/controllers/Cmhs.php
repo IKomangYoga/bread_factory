@@ -226,7 +226,7 @@
 		public function masuk_checkout()
 		{	
 			$this->load->model('Mpesanan');
-			$data['memesan'] = $this->Mpesanan->get_keranjang_data($this->session->userdata('id_Pegawai_Outlet'));
+			$data['memesan'] = $this->Mpesanan->get_memesan($this->session->userdata('id_Pegawai_Outlet'));
 			$this->load->view('Mahasiswa/checkout', $data);
 
 		}

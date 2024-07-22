@@ -16,6 +16,14 @@ Class Mpesanan extends CI_Model{
         return $query;
 
     }
+    public function get_memesan($id_Pegawai_Outlet)
+{
+    $this->db->select("*");
+    $this->db->from('memesan');
+    $this->db->where('id_Pegawai_Outlet', $id_Pegawai_Outlet);
+    $query = $this->db->get();
+    return $query->result_array(); // or result() if you prefer objects
+}
 
 
     public function insert_memesan($data) 
