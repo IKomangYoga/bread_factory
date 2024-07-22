@@ -217,16 +217,53 @@
 			
 		// Pergi ke Halaman Pesanan Outlet
 		public function pesanan()
+		{
+			$this->load->model('Mmhs');
+			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
+			$data['memesan'] = $this->Mmhs->get_pesanan($id_Pegawai_Outlet);
+			$this->load->view('Mahasiswa/pesanan', $data);
+		}
+		public function masuk_checkout()
 		{	
-			$get_products['hasil']=$this->mmhs->get_products();
-			$this->load->view('Mahasiswa/pesanan',$get_products);
+			$this->load->model('Mpesanan');
+			$data['memesan'] = $this->Mpesanan->get_keranjang_data($this->session->userdata('id_Pegawai_Outlet'));
+			$this->load->view('Mahasiswa/checkout', $data);
+
 		}
 
-		public function insertpesanan()
-		{
-			$data = $_POST;
+		public function insertpesanan() {
 			$this->load->model('Mpesanan');
+			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
+			
+			if ($id_Pegawai_Outlet <= 0) {
+				// Handle the case where the outlet doesn't exist
+				echo "The specified outlet does not exist.";
+				return; // Stop the execution of the function
+			}
+		
+			$tanggal_pembayaran = date('Y-m-d');
+			$tanggal_pesan = date('Y-m-d');
+			$id_mekanisme = 2; // replace with actual value
+		
+			$keranjang_data = $this->Mpesanan->get_keranjang_data($id_Pegawai_Outlet);
+		
+			$data_to_insert = array();
+			foreach ($keranjang_data as $row) {
+				$data_to_insert[] = array(
+					'tanggal_pembayaran' => $tanggal_pembayaran,
+					'jumlah_pesanan' => $row['jumlah'],
+					'tanggal_pesan' => $tanggal_pesan,
+					'id_Pegawai_Outlet' => $id_Pegawai_Outlet,
+					'id_mekanisme' => $id_mekanisme
+				);
+			}
+		
+			$this->Mpesanan->insert_memesan($data_to_insert);
+		
+			// redirect or display success message
+			redirect('Cmhs/masuk_checkout');
 		}
+		
 
 		public function delete_keranjang($id_keranjang)
 		{

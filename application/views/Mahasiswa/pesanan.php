@@ -32,11 +32,11 @@
 
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item active">
+						<li >
 							<a class="nav-link" href="<?php echo base_url('cmhs/dashboard'); ?>">Home</a>
 						</li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
+						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
 						<li><a class="nav-link" href="about.html">About us</a></li>
 						<li><a class="nav-link" href="services.html">Services</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
@@ -52,22 +52,7 @@
 		</nav>
 		<!-- End Header/Navigation -->
 
-		<!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Cart</h1>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		<!-- End Hero Section -->
+		
 
 		
 
@@ -79,30 +64,27 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th class="product-thumbnail">Gambar Product</th>
-                          <th class="product-name">Product</th>
-                          <th class="product-price">Price</th>
+                          <th class="product-thumbnail">ID Pegawai Outlet</th>
+                          <th class="product-name">Tanggal Pembayaran</th>
+                          <th class="product-price">Mekanisme</th>
                           <th class="product-quantity">Jumlah pesanan</th>
                           <th class="product-total">Total</th>
                           <th class="product-remove">Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php
-                            if (empty($hasil)) {
-                                echo "Data Kosong";	
-                            } else {
-                                $no = 1;
-                                foreach ($hasil as $data_roti): 
-                        ?>
+                      <!-- dari Mmhs get_pesanan -->
+                      <?php foreach($memesan as $row) { ?>
                             <tr>
                             <td class="product-thumbnail">
-                                <img src="images/product-1.png" alt="Image" class="img-fluid">
+                              <h2 class="h5 text-black"><?php echo $row->id_Pegawai_Outlet; ?></h2>
                             </td>
                             <td class="product-name">
-                                <h2 class="h5 text-black"><?php echo $data_roti->jenis_roti ?></h2>
+                                <h2 class="h5 text-black"><?php echo $row->tanggal_pembayaran; ?></h2>
                             </td>
-                            <td><?php echo "Rp. ".number_format("$data_roti->harga",0,',','.') ?></td>
+                            <td class="product-price">
+                              <h2 class="h5 text-black"><?php echo $row->id_mekanisme ;?></h2>
+                            </td>
 
                             <td>
                                 <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
@@ -117,14 +99,10 @@
             
                             </td>
                             <td>$49.00</td>
-                            <td><a href="#" class="btn btn-black btn-sm">X</a></td>
+                            <td><a href="#" class="btn btn-black btn-sm">Detail</a></td>
                             </tr>
         
-                        <?php
-                            $no++;                                       
-                            endforeach;
-                            }
-                        ?>
+                            <?php } ?>
                       </tbody>
                     </table>
                   </div>
@@ -157,33 +135,13 @@
                 <div class="col-md-6 pl-5">
                   <div class="row justify-content-end">
                     <div class="col-md-7">
-                      <div class="row">
-                        <div class="col-md-12 text-right border-bottom mb-5">
-                          <h3 class="text-black h4 text-uppercase">Total Harga</h3>
-                        </div>
-                      </div>
-                      <!-- <div class="row mb-3">
-                        <div class="col-md-6">
-                          <span class="text-black">Subtotal</span>
-                        </div>
-                        <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
-                        </div>
-                      </div> -->
-                      <div class="row mb-5">
-                        <div class="col-md-6">
-                          <span class="text-black">Total</span>
-                        </div>
-                        <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
-                        </div>
-                      </div>
+                      
         
-                      <div class="row">
+                      <!-- <div class="row">
                         <div class="col-md-12">
                           <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>

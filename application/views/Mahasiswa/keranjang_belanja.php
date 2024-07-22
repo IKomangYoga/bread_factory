@@ -106,26 +106,12 @@
         
               <div class="row">
                 <div class="col-md-6">
-                  <div class="row mb-5">
-                    <!-- <div class="col-md-6 mb-3 mb-md-0">
-                      <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                    </div> -->
+                  <div class="row mb-5">                   
                     <div class="col-md-6">
                         <button class="btn btn-outline-black btn-sm btn-block" onclick="window.location.href='<?php echo base_url('Cmhs/product'); ?>'">Lanjut Berbelanja</button>
                     </div>
                   </div>
-                  <!-- <div class="row">
-                    <div class="col-md-12">
-                      <label class="text-black h4" for="coupon">Coupon</label>
-                      <p>Enter your coupon code if you have one.</p>
-                    </div>
-                    <div class="col-md-8 mb-3 mb-md-0">
-                      <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-                    </div>
-                    <div class="col-md-4">
-                      <button class="btn btn-black">Apply Coupon</button>
-                    </div>
-                  </div> -->
+                  
                 </div>
                 <div class="col-md-6 pl-5">
                 
@@ -137,12 +123,7 @@
                         </div>
                       </div>
                       <div class="row mb-3">
-                        <!-- <div class="col-md-6">
-                          <span class="text-black">Subtotal</span>
-                        </div>
-                        <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
-                        </div> -->
+                        
                       </div>
                       <div class="row mb-5">
                         <div class="col-md-6">
@@ -154,9 +135,26 @@
                       </div>
         
                       <div class="row">
-                        <div class="col-md-12">
-                          <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Lanjut ke Checkout</button>
-                        </div>
+                          <div class="col-md-12">
+                              
+                              <form id="checkout-form" action="<?= base_url('Cmhs/insertpesanan'); ?>" method="post">
+
+                              <?php foreach ($keranjang as $row): ?>
+
+                              <input type="hidden" name="id_roti[]" value="<?php echo $row['id_roti']; ?>">
+
+                              <input type="hidden" name="jumlah[]" value="<?php echo $row['jumlah']; ?>">
+
+                              <?php endforeach; ?>
+
+                              <input type="hidden" name="tanggal_pesan" value="<?php echo date('Y-m-d'); ?>">
+
+                              
+
+                              <button class="btn btn-black btn-lg py-3 btn-block" type="submit">Lanjut ke Checkout</button>
+
+                              </form>
+                          </div>
                       </div>
                     </div>
                   </div>
@@ -165,7 +163,20 @@
             </div>
           </div>
 		
-
+    <!-- Start Footer Section -->
+		<footer class="footer-section">
+			<div class="container relative">
+				<div class="border-top copyright">
+					<div class="row pt-4">
+						<div class="col-lg-6">
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Kelompok Bread</a>
+            				</p>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- End Footer Section -->	
 
 
 		<script src="<?=base_url()?>assets/asset/js/bootstrap.bundle.min.js"></script>

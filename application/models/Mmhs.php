@@ -232,6 +232,15 @@
 	
 		}
 
+		// manggil database memesan sesuai dengan id_pegawai_outlet
+		public function get_pesanan($id_Pegawai_Outlet)
+		{
+			$this->db->where('id_Pegawai_Outlet', $id_Pegawai_Outlet);
+			$query = $this->db->get('memesan');
+			return $query->result();
+		}
+		
+		// Manggil database roti sesuai dengan id_rotinya
 		public function get_data_roti($id_roti)
 		{
 			$this->db->where('id_roti', $id_roti);
