@@ -57,11 +57,14 @@ class Ccompany extends CI_Controller
     }
 
     // nanti coba buat update status
-    public function update_status() {
+    public function update_status()
+    {
         $id_order = $this->input->post('id_order');
         $status_pesanan = $this->input->post('status');
-        $this->OrderModel->update_order_status($id_order, $status_pesanan);
-        redirect('Perusahaan/pesanan'); // Mengarahkan kembali ke halaman pesanan setelah pembaruan
+        $this->mpesanan->update_order_status($id_order, $status_pesanan);
+
+        // Menggunakan refresh untuk memastikan halaman diperbarui dengan benar
+        header("Refresh:0; url=" . base_url('Ccompany/pesanan_perusahaan'));
     }
 
     function status()

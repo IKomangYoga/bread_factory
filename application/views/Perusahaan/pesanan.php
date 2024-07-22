@@ -62,39 +62,35 @@
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
-						<th scope="col">ID Order</th>
-						<th scope="col">Nama Pemesan</th>
-						<th scope="col">Status Pesanan</th>
-						<th scope="col">Aksi</th>
+						<th>ID Order</th>
+						<th>Nama Pegawai</th>
+						<th>Status Pesanan</th>
+						<th>Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php if (isset($pesanan) && !empty($pesanan)) : ?>
-						<?php foreach ($pesanan as $p) : ?>
-							<tr>
-								<td><?= $p->id_order ?></td>
-								<td><?= $p->Nama_pegawai_outlet ?></td>
-								<td>
-									<form method="post" action="<?= base_url('ccompany/update_status') ?>">
-										<input type="hidden" name="id_order" value="<?= $p->id_order ?>">
-										<select name="status_pesanan" class="form-select form-select-sm">
-											<option value="Proses pembuatan" <?= $p->status_pesanan == 'Proses pembuatan' ? 'selected' : '' ?>>Proses pembuatan</option>
-											<option value="Terkendala" <?= $p->status_pesanan == 'Terkendala' ? 'selected' : '' ?>>Terkendala</option>
-											<option value="Pesanan sudah selesai" <?= $p->status_pesanan == 'Pesanan sudah selesai' ? 'selected' : '' ?>>Pesanan sudah selesai</option>
-										</select>
-										<button type="submit" class="btn btn-sm btn-primary mt-2">Update</button>
-									</form>
-								</td>
-								<td>
-									<button type="button" class="btn btn-sm btn-primary" onclick="window.location.href='<?= base_url('OrderController/detail/' . $p->id_order) ?>'">Detail</button>
-								</td>
-							</tr>
-						<?php endforeach; ?>
-					<?php else : ?>
+					<?php foreach ($pesanan as $order) : ?>
 						<tr>
-							<td colspan="4">No orders found.</td>
+							<td><?php echo $order->id_order; ?></td>
+							<td><?php echo $order->Nama_pegawai_outlet; ?></td>
+							<td><?php echo $order->status_pesanan; ?>
+
+
+								<form method="post" action="<?php echo base_url('Ccompany/update_status'); ?>">
+									<input type="hidden" name="id_order" value="<?php echo $order->id_order; ?>">
+									<select name="status">
+										<option value="Proses" <?php if ($order->status_pesanan == 'Proses') echo 'selected'; ?>>Proses</option>
+										<option value="Selesai" <?php if ($order->status_pesanan == 'Selesai') echo 'selected'; ?>>Selesai</option>
+										<option value="Kendala" <?php if ($order->status_pesanan == 'Kendala') echo 'selected'; ?>>Kendala</option>
+									</select>
+									<button type="submit">Update</button>
+								</form>
+							</td>
+							<td>
+								<a href="detail/<?php echo $order->id_order; ?>">Detail</a>
+							</td>
 						</tr>
-					<?php endif; ?>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>
