@@ -53,5 +53,6 @@ $route['default_controller'] = 'cdaftarmhs/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['order'] = 'OrderController/index';
-$route['order/update_status'] = 'OrderController/update_status';
+$route['PesananController'] = 'PesananController/index';
+$route['PesananController/detail/(:num)'] = 'PesananController/detail/$1';
+$route['PesananController/update_status'] = 'PesananController/update_status';

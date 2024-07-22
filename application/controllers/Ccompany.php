@@ -6,6 +6,7 @@ class Ccompany extends CI_Controller
     {
         parent::__construct();
         $this->load->model('mvalidasicompany');
+        $this->load->model('mpesanan');
         $this->mvalidasicompany->validasi();
         $this->load->model('mcompany');
         $this->load->helper(array('form', 'url'));
@@ -40,17 +41,29 @@ class Ccompany extends CI_Controller
         $this->load->view('Perusahaan/dashboard-company', $data);
     }
 
-    function pesanan_perusahaan()
+    public function pesanan_perusahaan()
     {
-        $data = [
-            'header' => $this->load->view('partial/header', '', true),
-            'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
-            'sidebarcompany' => $this->load->view('partial-company/sidebarcompany', '', true),
-            'footer' => $this->load->view('partial/footer', '', true),
-            'dataperusahaan' => $this->mcompany->getperusahaan($this->session->userdata('Id_Perusahaan')),
-        ];
-        $this->load->view('Perusahaan/pesanan');
+        // Mengambil data pesanan menggunakan metode get_all_orders dari model
+        $data['pesanan'] = $this->mpesanan->get_all_orders();
+
+        // Menggabungkan view partial
+        $data['header'] = $this->load->view('partial/header', '', true);
+        $data['navbarcompany'] = $this->load->view('partial-company/navbarcompany', '', true);
+        $data['sidebarcompany'] = $this->load->view('partial-company/sidebarcompany', '', true);
+        $data['footer'] = $this->load->view('partial/footer', '', true);
+
+        // Memuat view dengan data pesanan
+        $this->load->view('Perusahaan/pesanan', $data);
     }
+
+    // nanti coba buat update status
+    public function update_status() {
+        $id_order = $this->input->post('id_order');
+        $status_pesanan = $this->input->post('status');
+        $this->OrderModel->update_order_status($id_order, $status_pesanan);
+        redirect('Perusahaan/pesanan'); // Mengarahkan kembali ke halaman pesanan setelah pembaruan
+    }
+
     function status()
     {
 

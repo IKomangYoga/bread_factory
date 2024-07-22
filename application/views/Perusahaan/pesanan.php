@@ -56,157 +56,7 @@
 	</div>
 	<!-- End Hero Section -->
 
-
 	<!-- Start Isi Tabel -->
-	<!-- <div class="container mt-4">
-		<div class="col-lg-8-center">
-			<table class="table table-striped table-hover">
-				<thead>
-					<tr>
-						<th scope="col">ID Order</th>
-						<th scope="col">Nama Pemesan</th>
-						<th scope="col">Outlet</th>
-						<th scope="col">Status Pesanan</th>
-						<th scope="col">Aksi</th>
-					</tr>
-				</thead>
-				<tbody>
-
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td>test</td>
-						<td>tes</td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary">Edit</button>
-						</td>
-					</tr>
-
-
-
-				</tbody>
-			</table>
-		</div>
-	</div> -->
-	<!-- End Isi Tabel -->
-
 	<div class="container mt-4">
 		<div class="col-lg-8-center">
 			<table class="table table-striped table-hover">
@@ -214,7 +64,6 @@
 					<tr>
 						<th scope="col">ID Order</th>
 						<th scope="col">Nama Pemesan</th>
-						<th scope="col">Outlet</th>
 						<th scope="col">Status Pesanan</th>
 						<th scope="col">Aksi</th>
 					</tr>
@@ -224,32 +73,33 @@
 						<?php foreach ($pesanan as $p) : ?>
 							<tr>
 								<td><?= $p->id_order ?></td>
-								<td><?= $p->nama_pemesan ?></td>
-								<td><?= $p->outlet ?></td>
-								<td><?= $p->status_pesanan ?></td>
+								<td><?= $p->Nama_pegawai_outlet ?></td>
 								<td>
-									<form method="post" action="<?= base_url('OrderController/update_status') ?>">
+									<form method="post" action="<?= base_url('ccompany/update_status') ?>">
 										<input type="hidden" name="id_order" value="<?= $p->id_order ?>">
-										<select name="status" class="form-select form-select-sm">
-											<option value="Pending" <?= $p->status_pesanan == 'Pending' ? 'selected' : '' ?>>Pending</option>
-											<option value="Dalam Perjalanan" <?= $p->status_pesanan == 'Dalam Perjalanan' ? 'selected' : '' ?>>Dalam Perjalanan</option>
-											<option value="Selesai" <?= $p->status_pesanan == 'Selesai' ? 'selected' : '' ?>>Selesai</option>
-											<option value="Terdapat Kendala" <?= $p->status_pesanan == 'Terdapat Kendala' ? 'selected' : '' ?>>Terdapat Kendala</option>
+										<select name="status_pesanan" class="form-select form-select-sm">
+											<option value="Proses pembuatan" <?= $p->status_pesanan == 'Proses pembuatan' ? 'selected' : '' ?>>Proses pembuatan</option>
+											<option value="Terkendala" <?= $p->status_pesanan == 'Terkendala' ? 'selected' : '' ?>>Terkendala</option>
+											<option value="Pesanan sudah selesai" <?= $p->status_pesanan == 'Pesanan sudah selesai' ? 'selected' : '' ?>>Pesanan sudah selesai</option>
 										</select>
 										<button type="submit" class="btn btn-sm btn-primary mt-2">Update</button>
 									</form>
+								</td>
+								<td>
+									<button type="button" class="btn btn-sm btn-primary" onclick="window.location.href='<?= base_url('OrderController/detail/' . $p->id_order) ?>'">Detail</button>
 								</td>
 							</tr>
 						<?php endforeach; ?>
 					<?php else : ?>
 						<tr>
-							<td colspan="5">No orders found.</td>
+							<td colspan="4">No orders found.</td>
 						</tr>
 					<?php endif; ?>
 				</tbody>
 			</table>
 		</div>
 	</div>
+	<!-- End Isi Tabel -->
 
 	<!-- Start Footer Section -->
 	<footer class="footer-section">
@@ -259,16 +109,14 @@
 					<div class="col-lg-6">
 						<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>
 								document.write(new Date().getFullYear());
-							</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Kelompok Bread</a>
+							</script>. All Rights Reserved. &mdash; Designed with love by Kelompok Bread</a>
 						</p>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</footer>
 	<!-- End Footer Section -->
-
 
 	<script src="<?= base_url() ?>assets/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<?= base_url() ?>assets/asset/js/tiny-slider.js"></script>
