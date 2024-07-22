@@ -52,3 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'cdaftarmhs/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['order'] = 'OrderController/index';
+$route['order/update_status'] = 'OrderController/update_status';
