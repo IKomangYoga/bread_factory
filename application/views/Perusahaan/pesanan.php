@@ -98,6 +98,7 @@
 	<!-- End Isi Tabel -->
 
 	<!-- Start Footer Section -->
+	<div class="fixed-bottom">
 	<footer class="footer-section">
 		<div class="container relative">
 			<div class="border-top copyright">
@@ -112,6 +113,8 @@
 			</div>
 		</div>
 	</footer>
+	</div>
+
 	<!-- End Footer Section -->
 
 	<script src="<?= base_url() ?>assets/asset/js/bootstrap.bundle.min.js"></script>
