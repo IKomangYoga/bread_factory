@@ -44,9 +44,10 @@ class Mpesanan extends CI_Model
 
     public function update_order_status($id_order, $status_pesanan)
     {
+        //$this->db->update('memesan');
         $this->db->set('status_pesanan', $status_pesanan);
         $this->db->where('id_memesan', $id_order);
-        $this->db->update('memesan');
+        return $this->db->update('memesan');
     }
 
     public function get_order_by_id($id_order)
