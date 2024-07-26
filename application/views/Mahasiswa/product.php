@@ -15,7 +15,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="<?=base_url()?>assets/asset/css/tiny-slider.css" rel="stylesheet">
 		<link href="<?=base_url()?>assets/asset/css/style.css" rel="stylesheet">
-		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+		<title>Bread Factory</title>
 	</head>
 
 	<body>
@@ -37,9 +37,8 @@
 						</li>
 						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li><a class="nav-link" href="<?php echo base_url('cmhs/about_us'); ?>">About us</a></li>
+						<li><a class="nav-link" href="<?php echo base_url('cmhs/contact_us'); ?>">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">

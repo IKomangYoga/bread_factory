@@ -22,14 +22,13 @@ class Mpesanan extends CI_Model
         $this->db->from('memesan');
         $this->db->where('id_Pegawai_Outlet', $id_Pegawai_Outlet);
         $query = $this->db->get();
-        return $query->result_array(); // or result() if you prefer objects
+        return $query->result_array(); 
     }
 
 
     public function insert_memesan($data)
 
     {
-
         $this->db->insert_batch('memesan', $data);
     }
 
@@ -58,5 +57,10 @@ class Mpesanan extends CI_Model
         $this->db->where('id_order', $id_order);
         $query = $this->db->get();
         return $query->row();
+    }
+
+    public function insert_pembayaran($data)
+    {   
+        $this->db->insert('mekanisme_pembayaran', $data);  
     }
 }

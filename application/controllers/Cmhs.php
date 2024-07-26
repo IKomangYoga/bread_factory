@@ -10,6 +10,14 @@
 			$this->load->config('email');
 			$this->load->helper(array('form', 'url'));
 		}
+		public function about_us()
+		{
+			$this->load->view('Mahasiswa/about_us');
+		}
+		public function contact_us()
+		{
+			$this->load->view('Mahasiswa/contact_us');
+		}
 
 		function editdata()
 		{
@@ -52,7 +60,7 @@
 				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet ')),
 					];
 			$tampildata['hasil']=$this->mmhs->tampildata();
-			$data['table']=$this->load->view('Mahasiswa/dashboard_table',$tampildata,TRUE);
+			$data['table']=$this->load->view('Mahasiswa/index',$tampildata,TRUE);
 			$this->load->view('Mahasiswa/index',$data);
 		}
 
@@ -140,39 +148,7 @@
 		];
 		$this->load->view('Mahasiswa/pages-messages',$data);
 	}
-	
-	public function cv()
-	{
-		$data1=[
-			'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
-			
-		];
-		$data=[
-			'header'=>$this->load->view('partial/header','',true),
-			'navbar'=>$this->load->view('partial/navbar',$data1,true),
-			'sidebarcv'=>$this->load->view('partial/sidebarcv','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
-		];
-		$this->load->view('Mahasiswa/pages-cv',$data);
-	}
-	
-	public function kirim_cv(){
-		$perusahaan = $this->mcompany->getPerusahaan($_GET['id']);
-		$email = $perusahaan->Email;
-		if ($this->mdaftar->send_mail($email, "Mahasiswa Telah Melamar di Perusahaan Anda", '<a href="'.base_url('assets/foto/').$this->session->userdata('Cv').'">CV Mahasiswa</a>'))
-				{
-					echo "<script>alert('Email Berhasil Dikirim');</script>";
-					redirect('cmhs/perusahaan?id='.$_GET['id'],'refresh');
-				}
-				else
-				{
-					echo "<script>alert('Email Gagal Dikirim');</script>";
-					redirect('cmhs/perusahaan?id='.$_GET['id'],'refresh');
-				}
-				
-			}
-			
+		
 			
 		function prosesloginmhs()
 		{
@@ -233,30 +209,27 @@
 
 		public function insertpesanan() {
 			$this->load->model('Mpesanan');
-			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');	
-		
-			$tanggal_pembayaran = date('Y-m-d');
-			$tanggal_pesan = date('Y-m-d');
-			$id_mekanisme = 2; // replace with actual value
-			
-		
-			$keranjang_data = $this->Mpesanan->get_keranjang_data($id_Pegawai_Outlet);
-		
-			$data_to_insert = array();
-			foreach ($keranjang_data as $row) {
-				
-				$data_to_insert[] = array(
-					'tanggal_pembayaran' => $tanggal_pembayaran,
-					'jumlah_pesanan' => $row['jumlah'],
-					'tanggal_pesan' => $tanggal_pesan,
-					'id_Pegawai_Outlet' => $id_Pegawai_Outlet,
-					'id_mekanisme' => $id_mekanisme
-				);
-			}
-		
-			$this->Mpesanan->insert_memesan($data_to_insert);
-		
-			// redirect or display success message
+			$this->Mpesanan->insert_memesan($this->session->userdata('id_Pegawai_Outlet'));
+			redirect('Cmhs/keranjang');
+		}
+		public function proses_insert_pembayaran()
+		{
+			$this->load->model('Mpesanan');
+			$Nama_Mekanisme = $this->input->post('Nama_Mekanisme');
+			$Nomor_Rekening = $this->input->post('Nomor_Rekening');
+			$Nama_Bank = $this->input->post('Nama_Bank');
+			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
+
+			$data = array(
+				'Nama_Mekanisme' => $Nama_Mekanisme,
+				'Nomor_Rekening' => $Nomor_Rekening,
+				'Nama_Bank' => $Nama_Bank,
+				'id_Pegawai_Outlet' => $id_Pegawai_Outlet
+			);
+
+			$this->Mpesanan->insert_pembayaran($data);
+
+			// Redirect to a success page or display a success message
 			redirect('Cmhs/masuk_checkout');
 		}
 		

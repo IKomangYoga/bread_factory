@@ -17,38 +17,37 @@
 		<title>Bread Factory</title>
 	</head>
 <body>
-<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+      <!-- Start Header/Navigation -->
+      <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
-			<div class="container">
-				<a class="navbar-brand" href="index.html">Bread Factory<span>.</span></a>
+      <div class="container">
+        <a class="navbar-brand" href="<?php echo base_url('Cdaftarmhs/login')?>">Bread Factory<span>.</span></a>
+        <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+        <div class="collapse navbar-collapse" id="navbarsFurni">
+          <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+            <li>
+              <a class="nav-link" href="<?php echo base_url('cmhs/dashboard'); ?>">Home</a>
+            </li>
+            <li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
+            <li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('cmhs/about_us'); ?>">About us</a></li>
+            <li><a class="nav-link" href="<?php echo base_url('cmhs/contact_us'); ?>">Contact us</a></li>
+          </ul>
 
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li >
-							<a class="nav-link" href="<?php echo base_url('cmhs/dashboard'); ?>">Home</a>
-						</li>
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
-					</ul>
+          <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+            <li><a class="nav-link" href="<?php echo base_url('cmhs/profile'); ?>"><img src="<?=base_url()?>assets/asset/images/user.svg"></a></li>
+            <li><a class="nav-link" href="<?php echo base_url('cmhs/keranjang'); ?>"><img src="<?=base_url()?>assets/asset/images/cart.svg"></a></li>
+          </ul>
+        </div>
+      </div>
+        
+      </nav>
+      <!-- End Header/Navigation -->
 
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/profile'); ?>"><img src="<?=base_url()?>assets/asset/images/user.svg"></a></li>
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/keranjang'); ?>"><img src="<?=base_url()?>assets/asset/images/cart.svg"></a></li>
-					</ul>
-				</div>
-			</div>
-				
-		</nav>
-		<!-- End Header/Navigation -->
-<br>
+    <br>
   <main id="main" class="main">
 <div class="container">
     <section class="section profile">
@@ -276,8 +275,21 @@
     </div>
   </main><!-- End #main -->
 
-  <?=$footer?>
+  <!-- Start Footer Section -->
+  <footer class="footer-section">
+			<div class="container relative">
+				<div class="border-top copyright">
+					<div class="row pt-4">
+						<div class="col-lg-6">
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Kelompok Bread</a></p>
+						</div>
+					</div>
+				</div>
 
+			</div>
+		</footer>
+		<!-- End Footer Section -->	
 </body>
+
 
 </html>

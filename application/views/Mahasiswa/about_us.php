@@ -19,7 +19,7 @@
 
 	<body>
 
-		<!-- Start Header/Navigation -->
+	    <!-- Start Header/Navigation -->
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
@@ -30,12 +30,12 @@
 
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item active">
+						<li>
 							<a class="nav-link" href="<?php echo base_url('cmhs/dashboard'); ?>">Home</a>
 						</li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
-						<li><a class="nav-link" href="<?php echo base_url('cmhs/about_us'); ?>">About us</a></li>
+						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('cmhs/about_us'); ?>">About us</a></li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/contact_us'); ?>">Contact us</a></li>
 					</ul>
 
@@ -49,26 +49,7 @@
 		</nav>
 		<!-- End Header/Navigation -->
 
-		<!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Bread Factory <span clsas="d-block">Roti Enak </span></h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							<div class="hero-img-wrap">
-								<img src="<?=base_url()?>assets/asset/images/roti.png" class="img-fluid">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		<!-- End Hero Section -->
+		
 
 		
 
@@ -135,12 +116,8 @@
 			</div>
 		</div>
 		<!-- End About Us Section -->
-
-
-		
-
-		
-		<!-- Start Footer Section -->
+        
+        <!-- Start Footer Section -->
 		<footer class="footer-section">
 			<div class="container relative">
 				<div class="border-top copyright">

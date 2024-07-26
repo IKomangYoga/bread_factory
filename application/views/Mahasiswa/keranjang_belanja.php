@@ -36,9 +36,8 @@
 						</li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li><a class="nav-link" href="<?php echo base_url('cmhs/about_us'); ?>">About us</a></li>
+						<li><a class="nav-link" href="<?php echo base_url('cmhs/contact_us'); ?>">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -135,25 +134,14 @@
                       </div>
         
                       <div class="row">
-                          <div class="col-md-12">
-                              
-                              <form id="checkout-form" action="<?= base_url('Cmhs/insertpesanan'); ?>" method="post">
-
-                              <?php foreach ($keranjang as $row): ?>
-
-                              <input type="hidden" name="id_roti[]" value="<?php echo $row['id_roti']; ?>">
-
-                              <input type="hidden" name="jumlah[]" value="<?php echo $row['jumlah']; ?>">
-
-                              <?php endforeach; ?>
-
-                              <input type="hidden" name="tanggal_pesan" value="<?php echo date('Y-m-d'); ?>">
-
-                              
-
-                              <button class="btn btn-black btn-lg py-3 btn-block" type="submit">Lanjut ke Checkout</button>
-
-                              </form>
+                          <div class="col-md-12">                            
+                          <form id="checkout-form" action="<?= base_url('Cmhs/insertpesanan'); ?>" method="post">
+                            <input type="hidden" name="tanggal_pesan" value="<?php echo date('Y-m-d'); ?>">
+                            <input type="hidden" name="id_pegawai_outlet" value="<?php echo $this->session->userdata('id_pegawai_outlet'); ?>">
+                            <input type="hidden" name="id_mekanisme" value="<?php echo $id_mekanisme; ?>"> <!-- Add this line -->
+                            <input type="hidden" name="jumlah_pesanan" value="<?php echo $total_price; ?>"> <!-- Add this line -->
+                            <button class="btn btn-black btn-lg py-3 btn-block" type="submit">Lanjut ke Checkout</button>
+                        </form>
                           </div>
                       </div>
                     </div>
