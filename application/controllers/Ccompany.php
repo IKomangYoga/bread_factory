@@ -59,7 +59,7 @@ class Ccompany extends CI_Controller
     // nanti coba buat update status
     public function update_status()
     {
-        $id_order = $this->input->post('id_order');
+        $id_order = $this->input->post('id_memesan');
         $status_pesanan = $this->input->post('status');
         $this->mpesanan->update_order_status($id_order, $status_pesanan);
 

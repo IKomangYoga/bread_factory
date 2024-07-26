@@ -71,13 +71,13 @@
 				<tbody>
 					<?php foreach ($pesanan as $order) : ?>
 						<tr>
-							<td><?php echo $order->id_order; ?></td>
+							<td><?php echo $order->id_memesan; ?></td>
 							<td><?php echo $order->Nama_pegawai_outlet; ?></td>
 							<td><?php echo $order->status_pesanan; ?>
 
 
 								<form method="post" action="<?php echo base_url('Ccompany/update_status'); ?>">
-									<input type="hidden" name="id_order" value="<?php echo $order->id_order; ?>">
+									<input type="hidden" name="id_memesan" value="<?php echo $order->id_memesan; ?>">
 									<select name="status">
 										<option value="Proses" <?php if ($order->status_pesanan == 'Proses') echo 'selected'; ?>>Proses</option>
 										<option value="Selesai" <?php if ($order->status_pesanan == 'Selesai') echo 'selected'; ?>>Selesai</option>
@@ -87,7 +87,7 @@
 								</form>
 							</td>
 							<td>
-								<a href="detail/<?php echo $order->id_order; ?>">Detail</a>
+								<a href="detail/<?php echo $order->id_memesan; ?>">Detail</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
