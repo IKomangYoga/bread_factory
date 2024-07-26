@@ -233,22 +233,18 @@
 
 		public function insertpesanan() {
 			$this->load->model('Mpesanan');
-			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
-			
-			if ($id_Pegawai_Outlet <= 0) {
-				// Handle the case where the outlet doesn't exist
-				echo "The specified outlet does not exist.";
-				return; // Stop the execution of the function
-			}
+			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');	
 		
 			$tanggal_pembayaran = date('Y-m-d');
 			$tanggal_pesan = date('Y-m-d');
 			$id_mekanisme = 2; // replace with actual value
+			
 		
 			$keranjang_data = $this->Mpesanan->get_keranjang_data($id_Pegawai_Outlet);
 		
 			$data_to_insert = array();
 			foreach ($keranjang_data as $row) {
+				
 				$data_to_insert[] = array(
 					'tanggal_pembayaran' => $tanggal_pembayaran,
 					'jumlah_pesanan' => $row['jumlah'],
