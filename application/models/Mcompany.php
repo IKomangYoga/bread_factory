@@ -1,10 +1,23 @@
 <?php
     class Mcompany extends CI_Model
     {
+		public function __construct()
+	    {
+			parent::__construct();
+			$this->load->model('Mvalidasicompany');
+			$this->Mvalidasicompany->validasi();
+	    }
+
+		
+
+		function getperusahaan($id_Pegawai_Pabrik)
+		{
+			return $this->db->get_where('pegawai_pabrik',['id_Pegawai_Pabrik'=>$id_Pegawai_Pabrik])->row();
+		}
 
         function tampildata()
 		{
-			$sql="select * from pegawai_outlet";
+			$sql="select * from pegawai_pabrik";
 			$query=$this->db->query($sql);
 			if ($query->num_rows()>0)
 			{
@@ -184,10 +197,7 @@
 			redirect('Ccompany/dashboard','refresh');
 		}
 
-        function getperusahaan($idperusahaan)
-		{
-			return $this->db->get_where('pegawai_pabrik',['id_Pegawai_Pabrik '=>$idperusahaan])->row();
-		}
+        
 
         // public function insert(){
         //     $payload = array(

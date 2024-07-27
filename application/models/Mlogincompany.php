@@ -14,7 +14,7 @@
             //session
 				$data=$query->row();
 				$array=array(
-					'id_Pegawai_Pabrik '=>$data->id_Pegawai_Pabrik,
+					'id_Pegawai_Pabrik'=>$data->id_Pegawai_Pabrik,
                     'jabatan_pegawai_pabrik'=>$data->jabatan_pegawai_pabrik,
 					'Divisi_pegawai_pabrik'=>$data->Divisi_pegawai_pabrik,
 					'Nama_pegawai_pabrik'=>$data->Nama_pegawai_pabrik,

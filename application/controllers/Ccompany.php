@@ -5,12 +5,28 @@ class Ccompany extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('mvalidasicompany');
+        $this->load->model('Mvalidasicompany');
         $this->load->model('mpesanan');
-        $this->mvalidasicompany->validasi();
-        $this->load->model('mcompany');
+        $this->Mvalidasicompany->validasi();
+        $this->load->model('Mcompany');
         $this->load->helper(array('form', 'url'));
     }
+    public function profile()
+		{
+			$data1=[
+				'dataperusahaan'=>$this->Mcompany->getperusahaan($this->session->userdata('id_Pegawai_Pabrik')),
+
+			];
+			$data=[
+				'header'=>$this->load->view('partial/header','',true),
+				'navbar'=>$this->load->view('partial/navbar',$data1,true),
+				'sidebar'=>$this->load->view('partial/sidebar','',true),
+				'footer'=>$this->load->view('partial/footer','',true),
+                'sidebarprofile'=>$this->load->view('partial/sidebarprofile','',true),
+				'dataperusahaan'=>$this->Mcompany->getperusahaan($this->session->userdata('id_Pegawai_Pabrik')),
+			];
+			$this->load->view('Perusahaan/users-profile',$data);
+		}
 
     function editdata()
     {
@@ -36,7 +52,7 @@ class Ccompany extends CI_Controller
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
             'sidebarcompany' => $this->load->view('partial-company/sidebarcompany', '', true),
             'footer' => $this->load->view('partial/footer', '', true),
-            'dataperusahaan' => $this->mcompany->getperusahaan($this->session->userdata('id_Pegawai_Pabrik ')),
+            'dataperusahaan' => $this->Mcompany->getperusahaan($this->session->userdata('id_Pegawai_Pabrik')),
         ];
         $this->load->view('Perusahaan/dashboard-company', $data);
     }
