@@ -36,7 +36,7 @@
 						<a class="nav-link" href="<?php echo base_url('ccompany/dashboard'); ?>">Home</a>
 					</li>
 					<li><a class="nav-link" href="<?php echo base_url('ccompany/pesanan_perusahaan'); ?>">Pesanan</a></li>
-					<li><a class="nav-link" href="<?php echo base_url('ccompany/tambah product'); ?>">Product</a></li>
+					<li><a class="nav-link" href="<?php echo base_url('ccompany/tambah_roti'); ?>">Tambah Product</a></li>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 						<li><a class="nav-link" href="<?php echo base_url('ccompany/profile'); ?>"><img src="<?= base_url() ?>assets/asset/images/user.svg"></a></li>
