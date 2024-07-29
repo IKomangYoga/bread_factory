@@ -11,6 +11,7 @@ class Ccompany extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('session'); // Load session library
+        $this->load->model('mpesanan'); // Pastikan model ini sudah ada
     }
 
 
@@ -23,8 +24,29 @@ class Ccompany extends CI_Controller {
         $data['header'] = $this->load->view('partial/header', '', true);
         $data['navbarcompany'] = $this->load->view('partial-company/navbarcompany', '', true);
         $data['sidebarcompany'] = $this->load->view('partial-company/sidebarcompany', '', true);
-        $data['footer'] = $this->load->view('partial/footer', '', true);
+        //$data['footer'] = $this->load->view('partial/footer', '', true);
         $this->load->view('Perusahaan/pesanan_perusahaan', $data);
+    }
+
+    public function update_status($id_outlet = null) {
+        if ($id_outlet === null) {
+            $this->session->set_flashdata('error', 'ID Outlet tidak ditemukan.');
+            redirect('Ccompany/pesanan_perusahaan');
+        }
+
+        $new_status = $this->input->post('status');
+        // Debugging: Periksa nilai yang diterima
+            log_message('debug', 'ID Outlet: ' . $id_outlet);
+            log_message('debug', 'New Status: ' . $new_status);
+
+
+        if ($this->mpesanan->update_order_status($id_outlet, $new_status)) {
+            $this->session->set_flashdata('success', 'Status pesanan berhasil diperbarui.');
+        } else {
+            $this->session->set_flashdata('error', 'Gagal memperbarui status pesanan.');
+        }
+
+        redirect('Ccompany/pesanan_perusahaan');
     }
 
     public function editdata() {
@@ -61,7 +83,6 @@ class Ccompany extends CI_Controller {
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
             'sidebarcompany' => $this->load->view('partial-company/sidebarcompany', '', true),
-            'footer' => $this->load->view('partial/footer', '', true),
             'dataperusahaan' => $this->mcompany->getperusahaan($this->session->userdata('id_Pegawai_Pabrik')),
         ];
         $this->load->view('Perusahaan/dashboard-company', $data);
@@ -69,16 +90,7 @@ class Ccompany extends CI_Controller {
 
     
 
-    public function update_status() {
-        $id_order = $this->input->post('id_memesan');
-        $status_pesanan = $this->input->post('status');
 
-        // Memperbarui status pesanan melalui model Mpesanan
-        $this->mpesanan->update_order_status($id_order, $status_pesanan);
-
-        // Redirect ke halaman pesanan_perusahaan setelah pembaruan status
-        redirect('Ccompany/pesanan_perusahaan');
-    }
 
     public function status() {
         $data = [

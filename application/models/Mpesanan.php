@@ -47,16 +47,16 @@ class Mpesanan extends CI_Model
     }
 
     // Fungsi untuk mengambil pesanan berdasarkan ID outlet
-    public function getOrderById($id_outlet)
-    {
-        $this->db->where('id_outlet', $id_outlet);
-        return $this->db->get('memesan')->row_array();
-    }
+    //public function getOrderById($id_outlet)
+  //  {
+    //    $this->db->where('id_outlet', $id_outlet);
+   //     return $this->db->get('memesan')->row_array();
+   // }
 
     // Fungsi untuk memperbarui status pesanan
-    public function update_order_status($id_outlet, $status_pesanan)
-    {
-        $this->db->where('id_outlet', $id_outlet);
-        $this->db->update('memesan', ['status_pesanan' => $status_pesanan]);
+    public function update_order_status($order_id, $new_status) {
+        $this->db->set('status_pesanan', $new_status);
+        $this->db->where('id_outlet', $order_id);
+        return $this->db->update('memesan');
     }
 }
