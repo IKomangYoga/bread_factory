@@ -1,6 +1,5 @@
 <?php
-class Ccompany extends CI_Controller
-{
+class Ccompany extends CI_Controller {
 
     public function __construct()
     {
@@ -10,18 +9,29 @@ class Ccompany extends CI_Controller
         $this->mvalidasicompany->validasi();
         $this->load->model('mcompany');
         $this->load->helper(array('form', 'url'));
-        $this->load->library('form_validation'); 
-        // Jangan memuat ulang model yang sama
-        //$this->load->model('mpesanan');
+        $this->load->library('form_validation');
+        $this->load->library('session'); // Load session library
     }
 
-    public function editdata()
+
+    public function pesanan_perusahaan()
     {
+        $session_data = $this->session->userdata();
+        $user_id = isset($session_data['user_id']) ? $session_data['user_id'] : null;
+        
+        $data['pesanan'] = $this->mpesanan->get_all_orders();
+        $data['header'] = $this->load->view('partial/header', '', true);
+        $data['navbarcompany'] = $this->load->view('partial-company/navbarcompany', '', true);
+        $data['sidebarcompany'] = $this->load->view('partial-company/sidebarcompany', '', true);
+        $data['footer'] = $this->load->view('partial/footer', '', true);
+        $this->load->view('Perusahaan/pesanan_perusahaan', $data);
+    }
+
+    public function editdata() {
         $this->mcompany->simpanperusahaan();
     }
 
-    public function tambah_roti()
-    {
+    public function tambah_roti() {
         $this->form_validation->set_rules('jenis_roti', 'Jenis Roti', 'required');
         $this->form_validation->set_rules('harga', 'Harga', 'required|integer');
 
@@ -38,18 +48,15 @@ class Ccompany extends CI_Controller
         }
     }
 
-    public function simpanfotocompany()
-    {
+    public function simpanfotocompany() {
         $this->mcompany->simpanfoto();
     }
 
-    public function simpandatastatus()
-    {
+    public function simpandatastatus() {
         $this->mcompany->simpandatastatus();
     }
 
-    public function dashboard()
-    {
+    public function dashboard() {
         $data = [
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
@@ -60,31 +67,20 @@ class Ccompany extends CI_Controller
         $this->load->view('Perusahaan/dashboard-company', $data);
     }
 
-    public function pesanan_perusahaan()
-    {
-        $data['pesanan'] = $this->mpesanan->get_all_orders();
-        $data['header'] = $this->load->view('partial/header', '', true);
-        $data['navbarcompany'] = $this->load->view('partial-company/navbarcompany', '', true);
-        $data['sidebarcompany'] = $this->load->view('partial-company/sidebarcompany', '', true);
-        $data['footer'] = $this->load->view('partial/footer', '', true);
-        $this->load->view('Perusahaan/pesanan', $data);
-    }
+    
 
-    public function update_status()
-    {
+    public function update_status() {
         $id_order = $this->input->post('id_memesan');
         $status_pesanan = $this->input->post('status');
 
+        // Memperbarui status pesanan melalui model Mpesanan
         $this->mpesanan->update_order_status($id_order, $status_pesanan);
 
-        $this->load->model('order_model');
-        $this->order_model->update_status($id_order, $status_pesanan);
-
+        // Redirect ke halaman pesanan_perusahaan setelah pembaruan status
         redirect('Ccompany/pesanan_perusahaan');
     }
 
-    public function status()
-    {
+    public function status() {
         $data = [
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
@@ -97,8 +93,7 @@ class Ccompany extends CI_Controller
         $this->load->view('pages-statuscompany', $data);
     }
 
-    public function inbox()
-    {
+    public function inbox() {
         $data = [
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
@@ -110,8 +105,7 @@ class Ccompany extends CI_Controller
         $this->load->view('Perusahaan/inbox-company', $data);
     }
 
-    public function calonmhs()
-    {
+    public function calonmhs() {
         $data = [
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),

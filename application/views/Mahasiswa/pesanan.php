@@ -1,133 +1,131 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Untree.co">
-  <link rel="shortcut icon" href="favicon.png">
-  <meta name="description" content="" />
-  <meta name="keywords" content="bootstrap, bootstrap4" />
-  <!-- Bootstrap CSS -->
-  <link href="<?=base_url()?>assets/asset/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="<?=base_url()?>assets/asset/css/tiny-slider.css" rel="stylesheet">
-  <link href="<?=base_url()?>assets/asset/css/style.css" rel="stylesheet">
-  <title>Bread Factory</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Pesanan</title>
+    <link rel="stylesheet" href="<?=base_url()?>assets/asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .table img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Start Header/Navigation -->
-  <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Bread Factory<span>.</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarsFurni">
-        <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-          <li><a class="nav-link" href="<?php echo base_url('cmhs/dashboard'); ?>">Home</a></li>
-          <li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
-          <li class="nav-item active"><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
-          <li><a class="nav-link" href="<?php echo base_url('cmhs/about_us'); ?>">About us</a></li>
-          <li><a class="nav-link" href="<?php echo base_url('cmhs/contact_us'); ?>">Contact us</a></li>
-        </ul>
-        <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-          <li><a class="nav-link" href="<?php echo base_url('cmhs/profile'); ?>"><img src="<?=base_url()?>assets/asset/images/user.svg"></a></li>
-          <li><a class="nav-link" href="<?php echo base_url('cmhs/keranjang'); ?>"><img src="<?=base_url()?>assets/asset/images/cart.svg"></a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- End Header/Navigation -->
 
-  <div class="untree_co-section before-footer-section">
-    <div class="container">
-      <div class="row mb-5">
-        <form class="col-md-12" method="post">
-          <div class="site-blocks-table">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="product-thumbnail">ID Pegawai Outlet</th>
-                  <th class="product-name">Tanggal Pembayaran</th>
-                  <th class="product-price">Mekanisme</th>
-                  <th class="product-quantity">Jumlah pesanan</th>
-                  <th class="product-total">Total</th>
-                  <th class="product-remove">Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-              <!-- dari Mmhs get_pesanan -->
-              <?php foreach($memesan as $row) { ?>
+<div class="container">
+    <h1>Manajemen Pesanan Outlet</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Pesanan</th>
+                <th>Nama Outlet</th>
+                <th>Tanggal Pesanan</th>
+                <th>Jumlah Pesanan</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (!empty($pesanan)): ?>
+                <?php foreach($pesanan as $row): ?>
                     <tr>
-                    <td class="product-thumbnail">
-                      <h2 class="h5 text-black"><?php echo $row->id_Pegawai_Outlet; ?></h2>
-                    </td>
-                    <td class="product-name">
-                        <h2 class="h5 text-black"><?php echo $row->tanggal_pembayaran; ?></h2>
-                    </td>
-                    <td class="product-price">
-                      <h2 class="h5 text-black"><?php echo $row->id_mekanisme ;?></h2>
-                    </td>
+                        <td><?= $row->id_pesanan; ?></td>
+                        <td><?= $row->Nama_pegawai_outlet; ?></td>
+                        <td><?= $row->tanggal_pesanan; ?></td>
+                        <td><?= $row->jumlah_pesanan; ?></td>
+                        <td>
+                            <form method="post" action="<?= base_url('OrderController/update_status/' . $row->id_pesanan); ?>">
+                                <select name="status" class="form-control" onchange="this.form.submit()">
+                                    <option value="Dibuat" <?= $row->status_pesanan == 'Dibuat' ? 'selected' : ''; ?>>Dibuat</option>
+                                    <option value="Delivery" <?= $row->status_pesanan == 'Delivery' ? 'selected' : ''; ?>>Delivery</option>
+                                    <option value="Sudah Sampai" <?= $row->status_pesanan == 'Sudah Sampai' ? 'selected' : ''; ?>>Sudah Sampai</option>
+                                </select>
+                            </form>
+                        </td>
+                        <t<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Pesanan</title>
+    <link rel="stylesheet" href="<?=base_url()?>assets/asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .table img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
 
-                    <td>
-                        <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                        </div>
-                        </div>
-
-                    </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-black btn-sm">Detail</a></td>
+<div class="container">
+    <h1>Manajemen Pesanan Outlet</h1>
+    <?php if(session()->getFlashdata('message')): ?>
+        <div class="alert alert-info">
+            <?= session()->getFlashdata('message'); ?>
+        </div>
+    <?php endif; ?>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Pesanan</th>
+                <th>Nama Outlet</th>
+                <th>Tanggal Pesanan</th>
+                <th>Jumlah Pesanan</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (!empty($pesanan)): ?>
+                <?php foreach($pesanan as $row): ?>
+                    <tr>
+                        <td><?= $row['id_pesanan']; ?></td>
+                        <td><?= $row['Nama_pegawai_outlet']; ?></td>
+                        <td><?= $row['tanggal_pesanan']; ?></td>
+                        <td><?= $row['jumlah_pesanan']; ?></td>
+                        <td>
+                            <form method="post" action="<?= base_url('OrderController/update_status/' . $row['id_outlet']); ?>">
+                                <select name="status" class="form-control" onchange="this.form.submit()">
+                                    <option value="Dibuat" <?= $row['status_pesanan'] == 'Dibuat' ? 'selected' : ''; ?>>Dibuat</option>
+                                    <option value="Delivery" <?= $row['status_pesanan'] == 'Delivery' ? 'selected' : ''; ?>>Delivery</option>
+                                    <option value="Sudah Sampai" <?= $row['status_pesanan'] == 'Sudah Sampai' ? 'selected' : ''; ?>>Sudah Sampai</option>
+                                </select>
+                            </form>
+                        </td>
+                        <td><a href="<?= base_url('OrderController/batal/' . $row['id_pesanan']); ?>" class="btn btn-danger btn-sm">Batal</a></td>
                     </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr><td colspan="6" class="text-center">Tidak ada pesanan.</td></tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
 
-                    <?php } ?>
-              </tbody>
-            </table>
-          </div>
-        </form>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="row mb-5">
-            <div class="col-md-6">
-              <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 pl-5">
-          <div class="row justify-content-end">
-            <div class="col-md-7">
-              <!-- Checkout button or any other actions -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<script src="<?=base_url()?>assets/asset/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+d><a href="<?= base_url('OrderController/batal/' . $row->id_outlet); ?>" class="btn btn-danger btn-sm">Batal</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr><td colspan="6" class="text-center">Tidak ada pesanan.</td></tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
 
-  <!-- Start Footer Section -->
-  <footer class="footer-section">
-    <div class="container relative">
-      <div class="border-top copyright">
-        <div class="row pt-4">
-          <div class="col-lg-6">
-            <p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Kelompok Bread</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- End Footer Section -->	
-
-  <script src="<?=base_url()?>assets/asset/js/bootstrap.bundle.min.js"></script>
-  <script src="<?=base_url()?>assets/asset/js/tiny-slider.js"></script>
-  <script src="<?=base_url()?>assets/asset/js/custom.js"></script>
+<script src="<?=base_url()?>assets/asset/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

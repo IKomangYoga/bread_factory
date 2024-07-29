@@ -1,3 +1,4 @@
+<?php $this->load->view('partial/header'); ?>
 <!doctype html>
 <html lang="en">
 
