@@ -197,7 +197,7 @@
 		{
 			$this->load->model('Mmhs');
 			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
-			$data['memesan'] = $this->Mmhs->get_pesanan($id_Pegawai_Outlet);
+			$data['pesanan'] = $this->Mmhs->get_pesanan($id_Pegawai_Outlet);
 			$this->load->view('Mahasiswa/pesanan', $data);
 		}
 		
@@ -236,6 +236,7 @@
 			$this->Mpesanan->insert_memesan($data);
 			redirect('Cmhs/masuk_checkout');
 		}
+
 		public function proses_insert_pembayaran()
 		{
 			$this->load->model('Mpesanan');

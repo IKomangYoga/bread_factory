@@ -123,9 +123,9 @@
                     <div class="col-lg-3 col-md-4 label">Password</div>
                     <div class="col-lg-9 col-md-8"><?php echo $dataperusahaan->password ?></div>
                   </div>
-                  <div class="text-center">
-                      <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Password?')">Change Password</button>
-                    </div>
+                  <div class="row text-center">
+                    <button type="submit" class="btn btn-primary" href="<?php echo base_url('Cdaftarcompany/logincompany')?>">Change Password</button>
+                  </div>
                 </div>
                 <!-- End Overview -->
 

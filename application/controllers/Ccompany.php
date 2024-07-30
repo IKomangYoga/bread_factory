@@ -63,7 +63,7 @@ class Ccompany extends CI_Controller {
         } else {
             $this->session->set_flashdata('error', 'Gagal memperbarui status pesanan.');
         }
-
+        
         redirect('Ccompany/pesanan_perusahaan');
     }
 
