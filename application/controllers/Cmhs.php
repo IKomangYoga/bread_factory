@@ -49,7 +49,7 @@
         function dashboard()
 		{
 			$data1=[
-				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet ')),
+				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet')),
 			];
 
 			$data=[
@@ -57,7 +57,7 @@
 				'navbar'=>$this->load->view('partial/navbar',$data1,true),
 				'sidebar'=>$this->load->view('partial/sidebar','',true),
 				'footer'=>$this->load->view('partial/footer','',true),
-				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet ')),
+				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet')),
 					];
 			$tampildata['hasil']=$this->mmhs->tampildata();
 			$data['table']=$this->load->view('Mahasiswa/index',$tampildata,TRUE);

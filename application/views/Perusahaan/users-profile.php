@@ -78,7 +78,6 @@
             <div class="card-body pt-3">
               <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered">
-
                 <li class="nav-item">
                   <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                 </li>
@@ -87,21 +86,17 @@
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
                 </li>
 
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
-                </li>
-
               </ul>
-              <div class="tab-content pt-2">
 
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
-      
+              <!-- Tab Content -->
+              <div class="tab-content pt-2">
+                <!-- Profile Overview -->
+                <div class="tab-pane fade show active" id="profile-overview">
                   <h5 class="card-title">Profile Detail</h5>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">ID Pegawai</div>
                     <div class="col-lg-9 col-md-8"><?php echo $this->session->userdata('id_Pegawai_Pabrik'); ?></div>
-                    
                   </div>
 
                   <div class="row">
@@ -128,33 +123,68 @@
                     <div class="col-lg-3 col-md-4 label">Password</div>
                     <div class="col-lg-9 col-md-8"><?php echo $dataperusahaan->password ?></div>
                   </div>
-
                 </div>
+                <!-- End Overview -->
 
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                <!-- Profile Edit -->
+                <div class="tab-pane fade show" id="profile-edit">
+                  <h5 class="card-title">Profile Detail</h5>
 
-            
-                  <!-- Profile Edit Form -->
+                  <div class="row mb-3">
+                      <label for="Nama" class="col-md-4 col-lg-3 col-form-label">Nama</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="Nama" type="text" class="form-control" id="Nama_pegawai_pabrik" value="<?php echo $dataperusahaan->Nama_pegawai_pabrik ?>">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
+                      <div class="col-md-8 col-lg-9">
+                        <textarea name="Alamat" class="form-control" id="Alamat_pegawai_pabrik" style="height: 100px"><?php echo $dataperusahaan->Alamat_pegawai_pabrik ?></textarea>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">jabatan pegawai pabrik</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="No_Telepon" type="text" class="form-control" id="jabatan_pegawai_pabrik" value="<?php echo $dataperusahaan->jabatan_pegawai_pabrik ?>">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Divisi pegawai pabrik</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="Divisi" type="text" class="form-control" id="Divisi_pegawai_pabrik" value="<?php echo $dataperusahaan->Divisi_pegawai_pabrik ?>">
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Password?')">Change Password</button>
+                    </div>
+                </div>
+                <!-- End Edit -->
+
+                <!-- Profile Edit Form -->
+                <!-- <div class="tab-pane fade profile-edit pt-3" id="profile-edit">           
                   <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                      <div class="col-md-8 col-lg-9">
-                        <?php
-                          if(empty($this->session->userdata('foto')))
-                          {
-                          ?>
-                            <img src="<?=base_url()?>/assets/foto/empty.jpeg" alt="Profile">
-                          <?php  
-                            } else{
-                              ?>
-                             <img src="<?=base_url()?>/assets/foto/<?php echo $this->session->userdata('foto');?>" alt="Profile">
+                        <div class="col-md-8 col-lg-9">
                           <?php
-                            }
-                          ?>
+                            if(empty($this->session->userdata('foto')))
+                            {
+                            ?>
+                              <img src="<?=base_url()?>/assets/foto/empty.jpeg" alt="Profile">
+                            <?php  
+                              } else{
+                                ?>
+                              <img src="<?=base_url()?>/assets/foto/<?php echo $this->session->userdata('foto');?>" alt="Profile">
+                            <?php
+                              }
+                            ?>
                         
                         <div class="pt-2">
-                          <!-- <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a> -->
-                          <!-- Basic Modal -->
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                         
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
                       <i class="bi bi-upload"></i>
                           </button>
                           <div class="modal fade" id="basicModal" tabindex="-1">
@@ -183,7 +213,7 @@
                                 </div>
                               </div>
                             </div>
-                          </div><!-- End Basic Modal-->
+                          </div>
                           <a href="<?php echo base_url('cmhs/hapusfoto') ?>" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Foto?')"></i></a>
                         </div>
                       </div>
@@ -224,48 +254,16 @@
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Data Diri?')">Save Changes</button>
                     </div>
-                  </form><!-- End Profile Edit Form -->
+                  </div>
+                </form> -->
+                <!-- End Profile Edit Form -->
 
-                </div>
-                
-                <div class="tab-pane fade pt-3" id="profile-change-password">
-                  <!-- Change Password Form -->
-                  <form method="post"action ="<?php echo base_url('Cmhs/editpassword')?>" >
-                  <input type="hidden" name="id_Pegawai_pabrik"value="<?php echo $dataperusahaan->id_Pegawai_pabrik ?>">
-
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="current_password" type="password" class="form-control" id="currentPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="new_password" type="password" class="form-control" id="newPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="confirm_password" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Password?')">Change Password</button>
-                    </div>
-                  </form><!-- End Change Password Form -->
-
-                </div>
-
-              </div><!-- End Bordered Tabs -->
+              </div>
+              <!-- End Bordered Tabs -->
 
             </div>
           </div>
-<br>
+          <br>
         </div>
       </div>
     </section>
@@ -286,6 +284,8 @@
 			</div>
 		</footer>
 		<!-- End Footer Section -->	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </body>
 </body>
 
 

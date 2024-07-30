@@ -128,7 +128,7 @@
 
 		function getmahasiswa($id_Pegawai_Outlet )
 		{
-			return $this->db->get_where('pegawai_outlet',['id_Pegawai_Outlet '=>$id_Pegawai_Outlet])->row();
+			return $this->db->get_where('pegawai_outlet',['id_Pegawai_Outlet'=>$id_Pegawai_Outlet])->row();
 		}
 
 		function getperusahaan($Id_Perusahaan)
