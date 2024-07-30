@@ -111,8 +111,7 @@
 
                             <tr>
 
-                                <td> <?php echo $row->id_memesan; ?> <strong class="mx-2">x</strong> <?php echo $row->jumlah_pesanan; ?></td>
-
+                                <td> <?php echo $row->id_roti; ?> <strong class="mx-2">x</strong> <?php echo $row->jumlah_pesanan; ?></td>
                                 <td><?php echo $row->jumlah_pesanan; ?></td>
 
                             </tr>
