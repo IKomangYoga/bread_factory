@@ -58,7 +58,7 @@ class Ccompany extends CI_Controller {
             log_message('debug', 'New Status: ' . $new_status);
 
 
-        if ($this->mpesanan->update_order_status($id_outlet, $new_status)) {
+        if ($this->mpesanan->update_order_status1($id_outlet, $new_status)) {
             $this->session->set_flashdata('success', 'Status pesanan berhasil diperbarui.');
         } else {
             $this->session->set_flashdata('error', 'Gagal memperbarui status pesanan.');

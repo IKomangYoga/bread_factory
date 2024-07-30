@@ -221,11 +221,11 @@
 					'tanggal_pembayaran' => $tanggal_pesan,
 					'tanggal_pesan' => $tanggal_pesan,
 					'jumlah_pesanan' => $jumlah_pesanan,
-					'id_outlet' => 7,
+					'id_outlet' => 1,
 					'id_Pegawai_Outlet' => $id_Pegawai_Outlet,
 					'id_roti' => $id_roti,
-					'id_Pegawai_Pabrik' => 8,
-					'id_mekanisme' => 9
+					'id_Pegawai_Pabrik' => 1,
+					'id_mekanisme' => 1
 				]
 			];
 			$data1 = [
@@ -244,13 +244,13 @@
 			$Nama_Mekanisme = $this->input->post('Nama_Mekanisme');
 			$Nomor_Rekening = $this->input->post('Nomor_Rekening');
 			$Nama_Bank = $this->input->post('Nama_Bank');
-			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
+		
 
 			$data = array(
 				'Nama_Mekanisme' => $Nama_Mekanisme,
 				'Nomor_Rekening' => $Nomor_Rekening,
 				'Nama_Bank' => $Nama_Bank,
-				'id_Pegawai_Outlet' => $id_Pegawai_Outlet
+				
 			);
 
 			$this->Mpesanan->insert_pembayaran($data);

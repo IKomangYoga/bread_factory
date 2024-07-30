@@ -74,6 +74,11 @@ class Mpesanan extends CI_Model
         $this->db->where('id_outlet', $order_id);
         return $this->db->update('memesan');
     }
+    public function update_order_status1($order_id, $new_status) {
+        $this->db->set('status_pesanan', $new_status);
+        $this->db->where('id_memesan', $order_id);
+        return $this->db->update('memesan');
+    }
 
     // Fungsi untuk menghapus pesanan berdasarkan ID
     public function hapus_pesanan($id) {

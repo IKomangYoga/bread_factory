@@ -36,7 +36,7 @@
 						</li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
 						<li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
-						<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('cmhs/about_us'); ?>">About us</a></li>
+						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('cmhs/about_us'); ?>">About us</a></li>
 						
 						
 					</ul>
@@ -158,7 +158,7 @@
 						<!-- End form pembayaran -->
 
 		                <div class="form-group">
-		                  <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Place Order</button>
+		                  <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='<?php echo base_url('cmhs/dashboard'); ?>'">Place Order</button>
 		                </div>
 
 		              </div>
