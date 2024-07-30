@@ -210,18 +210,22 @@
 
 		public function insertpesanan() {
 			$this->load->model('Mpesanan');
+
 			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
+			$tanggal_pesan = $this->input->post('tanggal_pesan');
+			$jumlah_pesanan = $this->input->post('jumlah_pesanan');
+			$id_roti = $this->input->post('id_roti');
 
 			$data = [
 				[
-					'tanggal_pembayaran' => 2024-07-01,
-					'jumlah_pesanan' => 1,
-					'tanggal_pesan' => 2024-07-01,
-					'id_outlet' => 1,
+					'tanggal_pembayaran' => $tanggal_pesan,
+					'tanggal_pesan' => $tanggal_pesan,
+					'jumlah_pesanan' => $jumlah_pesanan,
+					'id_outlet' => 6,
 					'id_Pegawai_Outlet' => $id_Pegawai_Outlet,
-					'id_roti' => 1,
-					'id_Pegawai_Pabrik' => 1,
-					'id_mekanisme' => 1
+					'id_roti' => $id_roti,
+					'id_Pegawai_Pabrik' => 7,
+					'id_mekanisme' => 8
 				]
 			];
 			$data1 = [
@@ -235,6 +239,7 @@
 		public function proses_insert_pembayaran()
 		{
 			$this->load->model('Mpesanan');
+
 			$Nama_Mekanisme = $this->input->post('Nama_Mekanisme');
 			$Nomor_Rekening = $this->input->post('Nomor_Rekening');
 			$Nama_Bank = $this->input->post('Nama_Bank');
