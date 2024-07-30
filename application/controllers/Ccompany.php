@@ -1,6 +1,5 @@
 <?php
-class Ccompany extends CI_Controller
-{
+class Ccompany extends CI_Controller {
 
     public function __construct()
     {
@@ -10,6 +9,9 @@ class Ccompany extends CI_Controller
         $this->Mvalidasicompany->validasi();
         $this->load->model('Mcompany');
         $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->library('session'); // Load session library
+        $this->load->model('mpesanan'); // Pastikan model ini sudah ada
     }
     public function profile()
 		{
@@ -28,64 +30,90 @@ class Ccompany extends CI_Controller
 			$this->load->view('Perusahaan/users-profile',$data);
 		}
 
-    function editdata()
+
+    public function pesanan_perusahaan()
     {
+        $session_data = $this->session->userdata();
+        $user_id = isset($session_data['user_id']) ? $session_data['user_id'] : null;
+        
+        $data['pesanan'] = $this->mpesanan->get_all_orders();
+        $data['header'] = $this->load->view('partial/header', '', true);
+        $data['navbarcompany'] = $this->load->view('partial-company/navbarcompany', '', true);
+        $data['sidebarcompany'] = $this->load->view('partial-company/sidebarcompany', '', true);
+        //$data['footer'] = $this->load->view('partial/footer', '', true);
+        $this->load->view('Perusahaan/pesanan_perusahaan', $data);
+    }
+
+    public function update_status($id_outlet = null) {
+        if ($id_outlet === null) {
+            $this->session->set_flashdata('error', 'ID Outlet tidak ditemukan.');
+            redirect('Ccompany/pesanan_perusahaan');
+        }
+
+        $new_status = $this->input->post('status');
+        // Debugging: Periksa nilai yang diterima
+            log_message('debug', 'ID Outlet: ' . $id_outlet);
+            log_message('debug', 'New Status: ' . $new_status);
+
+
+        if ($this->mpesanan->update_order_status($id_outlet, $new_status)) {
+            $this->session->set_flashdata('success', 'Status pesanan berhasil diperbarui.');
+        } else {
+            $this->session->set_flashdata('error', 'Gagal memperbarui status pesanan.');
+        }
+
+        redirect('Ccompany/pesanan_perusahaan');
+    }
+
+    public function editdata() {
         $this->mcompany->simpanperusahaan();
     }
 
-    function simpanfotocompany()
-    {
-        $this->load->model('mcompany');
+    public function tambah_roti() {
+        $this->form_validation->set_rules('jenis_roti', 'Jenis Roti', 'required');
+        $this->form_validation->set_rules('harga', 'Harga', 'required|integer');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('Perusahaan/tambah_produk');
+        } else {
+            $data = [
+                'jenis_roti' => $this->input->post('jenis_roti'),
+                'harga' => $this->input->post('harga'),
+            ];
+
+            $this->mcompany->tambah_roti($data);
+            redirect('Ccompany/dashboard');
+        }
+    }
+
+    public function simpanfotocompany() {
         $this->mcompany->simpanfoto();
     }
 
-    function simpandatastatus()
-    {
-        $this->load->model('mcompany');
+    public function simpandatastatus() {
         $this->mcompany->simpandatastatus();
     }
 
-    function dashboard()
-    {
+    public function dashboard() {
         $data = [
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
             'sidebarcompany' => $this->load->view('partial-company/sidebarcompany', '', true),
+<<<<<<< HEAD
             'footer' => $this->load->view('partial/footer', '', true),
             'dataperusahaan' => $this->Mcompany->getperusahaan($this->session->userdata('id_Pegawai_Pabrik')),
+=======
+            'dataperusahaan' => $this->mcompany->getperusahaan($this->session->userdata('id_Pegawai_Pabrik')),
+>>>>>>> 6b0432f5df6c6ef808f9bc8d5f4ee0732be194fe
         ];
         $this->load->view('Perusahaan/dashboard-company', $data);
     }
 
-    public function pesanan_perusahaan()
-    {
-        // Mengambil data pesanan menggunakan metode get_all_orders dari model
-        $data['pesanan'] = $this->mpesanan->get_all_orders();
+    
 
-        // Menggabungkan view partial
-        $data['header'] = $this->load->view('partial/header', '', true);
-        $data['navbarcompany'] = $this->load->view('partial-company/navbarcompany', '', true);
-        $data['sidebarcompany'] = $this->load->view('partial-company/sidebarcompany', '', true);
-        $data['footer'] = $this->load->view('partial/footer', '', true);
 
-        // Memuat view dengan data pesanan
-        $this->load->view('Perusahaan/pesanan', $data);
-    }
 
-    // nanti coba buat update status
-    public function update_status()
-    {
-        $id_order = $this->input->post('id_memesan');
-        $status_pesanan = $this->input->post('status');
-        $this->mpesanan->update_order_status($id_order, $status_pesanan);
-
-        // Menggunakan refresh untuk memastikan halaman diperbarui dengan benar
-        header("Refresh:0; url=" . base_url('Ccompany/pesanan_perusahaan'));
-    }
-
-    function status()
-    {
-
+    public function status() {
         $data = [
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
@@ -98,9 +126,7 @@ class Ccompany extends CI_Controller
         $this->load->view('pages-statuscompany', $data);
     }
 
-
-    function inbox()
-    {
+    public function inbox() {
         $data = [
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
@@ -112,8 +138,7 @@ class Ccompany extends CI_Controller
         $this->load->view('Perusahaan/inbox-company', $data);
     }
 
-    function calonmhs()
-    {
+    public function calonmhs() {
         $data = [
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),

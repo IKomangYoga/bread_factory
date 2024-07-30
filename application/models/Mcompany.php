@@ -33,6 +33,27 @@
 			return $hasil;	
 		}
 
+		function tambah_roti($data)
+   		{
+        $this->db->insert('roti', $data);
+    	}
+
+	
+		public function update_status($order_id, $new_status) {
+			// Update status di tabel orders
+			$this->db->where('id', $order_id);
+			$this->db->update('orders', ['order_status' => $new_status]);
+			
+			// Masukkan perubahan status ke tabel order_history
+			$data = [
+				'order_id' => $order_id,
+				'status' => $new_status,
+				'changed_at' => date('Y-m-d H:i:s')
+			];
+			$this->db->insert('order_history', $data);
+		}
+
+
         function simpanperusahaan()
 		{
 			

@@ -100,6 +100,13 @@
 			$this->load->view('Mahasiswa/pages-perusahaan',$data);	
 		}
 
+		public function pesanan() {
+			$this->load->model('Mpesanan');
+			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
+			$data['memesan'] = $this->Mpesanan->getPesananByOutlet($id_Pegawai_Outlet);
+			$this->load->view('Mahasiswa/pesanan_outlet', $data);
+		}
+
 		public function profile()
 		{
 			$data1=[
