@@ -22,6 +22,19 @@ class Mpesanan extends CI_Model
         $this->db->insert_batch('memesan', $data);
     }
 
+    // Fungsi untuk memasukkan data pembayaran
+    public function insert_pembayaran($data)
+    {   
+        $this->db->insert('mekanisme_pembayaran', $data);  
+    }
+    
+    // Fungsi untuk memasukkan data pembayaran
+    public function get_memesan($data)
+    {   
+        $query = $this->db->get_where('memesan', array('id_Pegawai_Outlet' => $data));
+        return $query->result(); // Return the result as an array of objects
+    }
+    
     // Fungsi untuk mendapatkan pesanan berdasarkan ID
     public function get_order_by_id($id_order)
     {
@@ -33,17 +46,11 @@ class Mpesanan extends CI_Model
                         ->row();
     }
 
-    // Fungsi untuk memasukkan data pembayaran
-    public function insert_pembayaran($data)
-    {   
-        $this->db->insert('mekanisme_pembayaran', $data);  
-    }
-
     // Fungsi untuk mengambil semua pesanan dari tabel 'memesan'
     public function get_all_orders()
     {
-    $query = $this->db->get('memesan');
-    return $query->result(); // Menggunakan result() untuk mendapatkan objek
+        $query = $this->db->get('memesan');
+        return $query->result(); // Menggunakan result() untuk mendapatkan objek
     }
 
     // Fungsi untuk mengambil pesanan berdasarkan ID outlet
