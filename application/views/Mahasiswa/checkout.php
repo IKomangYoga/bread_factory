@@ -62,7 +62,7 @@
 				  <div class="form-group row">
 		              <div class="col-md-12">
 		                <label for="c_companyname" class="text-black">ID </label>
-		                <input type="text" class="form-control" id="c_companyname" name="c_companyname" placeholder="<?= $memesan[0]['id_Pegawai_Outlet']?>">
+		                <input type="text" class="form-control" id="c_companyname" name="c_companyname" placeholder="<?= $memesan[0]->id_Pegawai_Outlet?>">
 		              </div>
 		            </div>
 
@@ -111,9 +111,9 @@
 
                             <tr>
 
-                                <td> <?php echo $row['id_keranjang']; ?> <strong class="mx-2">x</strong> <?php echo $row['jumlah_pesanan']; ?></td>
+                                <td> <?php echo $row->id_memesan; ?> <strong class="mx-2">x</strong> <?php echo $row->jumlah_pesanan; ?></td>
 
-                                <td><?php echo $row['jumlah_pesanan']; ?></td>
+                                <td><?php echo $row->jumlah_pesanan; ?></td>
 
                             </tr>
 

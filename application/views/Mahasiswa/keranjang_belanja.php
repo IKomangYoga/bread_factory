@@ -134,7 +134,8 @@
                       </div>
         
                       <div class="row">
-                          <div class="col-md-12">                            
+                          <div class="col-md-12">
+                                                    
                           <form id="checkout-form" action="<?= base_url('Cmhs/insertpesanan'); ?>" method="post">
 
                             <input type="hidden" name="tanggal_pesan" value="<?php echo date('Y-m-d'); ?>">

@@ -162,105 +162,8 @@
                     </div>
                 </div>
                 <!-- End Edit -->
-
-                <!-- Profile Edit Form -->
-                <!-- <div class="tab-pane fade profile-edit pt-3" id="profile-edit">           
-                  <div class="row mb-3">
-                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                        <div class="col-md-8 col-lg-9">
-                          <?php
-                            if(empty($this->session->userdata('foto')))
-                            {
-                            ?>
-                              <img src="<?=base_url()?>/assets/foto/empty.jpeg" alt="Profile">
-                            <?php  
-                              } else{
-                                ?>
-                              <img src="<?=base_url()?>/assets/foto/<?php echo $this->session->userdata('foto');?>" alt="Profile">
-                            <?php
-                              }
-                            ?>
-                        
-                        <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                         
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                      <i class="bi bi-upload"></i>
-                          </button>
-                          <div class="modal fade" id="basicModal" tabindex="-1">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title">Upload Photo</h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  
-                                  <?php echo form_open_multipart('cmhs/simpanfotoprofile'); ?>
-                                  <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">Photo Upload</label> <br/>
-                                    <div class="col-sm-10">
-                                      <input class="form-control" type="file" name="foto" id="formFile">
-                                    </div>
-                                  </div>
-                                  
-
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                  <button type="submit" class="btn btn-primary">Save changes</button>
-                                  <?php echo form_close(); ?>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <a href="<?php echo base_url('cmhs/hapusfoto') ?>" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Foto?')"></i></a>
-                        </div>
-                      </div>
-                  </div>
-                  
-
-                  <form method="post"action ="<?php echo base_url('Cmhs/editdata')?>" >
-                  <input type="hidden" name="id_Pegawai_pabrik"value="<?php echo $dataperusahaan->id_Pegawai_pabrik ?>">
-                  
-                    <div class="row mb-3">
-                      <label for="Nama" class="col-md-4 col-lg-3 col-form-label">Nama</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="Nama" type="text" class="form-control" id="Nama_pegawai_pabrik" value="<?php echo $dataperusahaan->Nama_pegawai_pabrik ?>">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
-                      <div class="col-md-8 col-lg-9">
-                        <textarea name="Alamat" class="form-control" id="Alamat_pegawai_pabrik" style="height: 100px"><?php echo $dataperusahaan->Alamat_pegawai_pabrik ?></textarea>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">jabatan pegawai pabrik</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="No_Telepon" type="text" class="form-control" id="jabatan_pegawai_pabrik" value="<?php echo $dataperusahaan->jabatan_pegawai_pabrik ?>">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Divisi pegawai pabrik</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="Divisi" type="text" class="form-control" id="Divisi_pegawai_pabrik" value="<?php echo $dataperusahaan->Divisi_pegawai_pabrik ?>">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Data Diri?')">Save Changes</button>
-                    </div>
-                  </div>
-                </form> -->
-                <!-- End Profile Edit Form -->
-
               </div>
               <!-- End Bordered Tabs -->
-
             </div>
           </div>
           <br>
@@ -268,7 +171,8 @@
       </div>
     </section>
     </div>
-  </main><!-- End #main -->
+  </main>
+  <!-- End #main -->
 
   <!-- Start Footer Section -->
   <footer class="footer-section">
