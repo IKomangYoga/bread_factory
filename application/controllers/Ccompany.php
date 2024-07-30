@@ -104,8 +104,6 @@ class Ccompany extends CI_Controller {
         $this->load->view('Perusahaan/dashboard-company', $data);
     }
 
-    
-
 
 
     public function status() {

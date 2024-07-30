@@ -126,15 +126,12 @@
 				
 		}
 
-		function getmahasiswa($id_Pegawai_Outlet )
+		function getmahasiswa($id_Pegawai_Outlet)
 		{
 			return $this->db->get_where('pegawai_outlet',['id_Pegawai_Outlet'=>$id_Pegawai_Outlet])->row();
 		}
 
-		function getperusahaan($Id_Perusahaan)
-		{
-			return $this->db->get_where('pegawai_pabrik',['Id_Perusahaan'=>$Id_Perusahaan])->row();
-		}
+		
 		
         function tampildata()
 		{

@@ -35,7 +35,7 @@
 
 		function tambah_roti($data)
    		{
-        $this->db->insert('roti', $data);
+        	$this->db->insert('roti', $data);
     	}
 
 	
