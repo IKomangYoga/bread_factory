@@ -222,11 +222,11 @@
 					'tanggal_pembayaran' => $tanggal_pesan,
 					'tanggal_pesan' => $tanggal_pesan,
 					'jumlah_pesanan' => $jumlah_pesanan,
-					'id_outlet' => 1,
+					'id_outlet' => 3,
 					'id_Pegawai_Outlet' => $id_Pegawai_Outlet,
 					'id_roti' => $id_roti,
-					'id_Pegawai_Pabrik' => 1,
-					'id_mekanisme' => 1
+					'id_Pegawai_Pabrik' => 3,
+					'id_mekanisme' => 3
 				]
 			];
 			$data1 = [

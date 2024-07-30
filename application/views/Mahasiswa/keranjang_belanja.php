@@ -140,10 +140,10 @@
                             <input type="hidden" name="tanggal_pesan" value="<?php echo date('Y-m-d'); ?>">
                             <input type="hidden" name="id_pegawai_outlet" value="<?php echo $this->session->userdata('id_pegawai_outlet'); ?>">
                             <!-- <input type="hidden" name="id_mekanisme" value="<?php echo $id_mekanisme; ?>"> -->
-                            <input type="hidden" name="jumlah_pesanan" value="<?php echo $total_price; ?>">
-                            <input type="hidden" name="id_roti" value="<?php echo $row['jenis_roti']; ?>">
+                            <input type="hidden" name="jumlah_pesanan" value="<?php echo $row['jumlah']; ?>">
+                            <input type="hidden" name="id_roti" value="<?php echo $row['id_roti']; ?>">
                             <button class="btn btn-black btn-lg py-3 btn-block" type="submit">Lanjut ke Checkout</button>
-                            
+
                         </form>
                           </div>
                       </div>
