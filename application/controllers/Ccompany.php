@@ -94,17 +94,12 @@ class Ccompany extends CI_Controller {
         $this->mcompany->simpandatastatus();
     }
 
-    public function dashboard() {
+    public function dashboard() {      
         $data = [
             'header' => $this->load->view('partial/header', '', true),
             'navbarcompany' => $this->load->view('partial-company/navbarcompany', '', true),
             'sidebarcompany' => $this->load->view('partial-company/sidebarcompany', '', true),
-<<<<<<< HEAD
-            'footer' => $this->load->view('partial/footer', '', true),
             'dataperusahaan' => $this->Mcompany->getperusahaan($this->session->userdata('id_Pegawai_Pabrik')),
-=======
-            'dataperusahaan' => $this->mcompany->getperusahaan($this->session->userdata('id_Pegawai_Pabrik')),
->>>>>>> 6b0432f5df6c6ef808f9bc8d5f4ee0732be194fe
         ];
         $this->load->view('Perusahaan/dashboard-company', $data);
     }

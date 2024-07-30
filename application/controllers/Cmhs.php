@@ -1,7 +1,7 @@
 <?php
     class Cmhs extends CI_Controller
     {
-        public function __construct()
+		public function __construct()
 		{
 			parent::__construct();;
 			$this->load->model('mmhs');
@@ -18,100 +18,94 @@
 		{
 			$this->load->view('Mahasiswa/contact_us');
 		}
-
+		
 		function editdata()
 		{
 			$this->mmhs->simpanmhs();	
 		}
-
+		
 		function editpassword()
 		{
 			$this->mmhs->proseseditpassword();	
 		}
-
+		
 		function simpanfotoprofile()
         {
-            $this->load->model('mmhs');
+			$this->load->model('mmhs');
             $this->mmhs->simpanfoto();
         }
-
+		
 		function simpandatastatus(){
 			$this->load->model('mmhs');
 			$this->mmhs->simpandatastatus();
 		}
-
+		
 		function hapusfoto()
 		{
 			$this->load->model('mmhs');
             $this->mmhs->hapusfoto();
 		}
-
+		
         function dashboard()
 		{
 			$data1=[
 				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet')),
 			];
-
+			
 			$data=[
 				'header'=>$this->load->view('partial/header','',true),
 				'navbar'=>$this->load->view('partial/navbar',$data1,true),
 				'sidebar'=>$this->load->view('partial/sidebar','',true),
 				'footer'=>$this->load->view('partial/footer','',true),
 				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet')),
-					];
+			];
 			$tampildata['hasil']=$this->mmhs->tampildata();
 			$data['table']=$this->load->view('Mahasiswa/index',$tampildata,TRUE);
 			$this->load->view('Mahasiswa/index',$data);
 		}
-
+		
 		function status()
 		{
 			$data1=[
 				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet')),
 			];
-
+			
 			$data=[
 				'header'=>$this->load->view('partial/header','',true),
 				'navbar'=>$this->load->view('partial/navbar',$data1,true),
 				'sidebarstatus'=>$this->load->view('partial/sidebarstatus','',true),
 				'footer'=>$this->load->view('partial/footer','',true),
 				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet')),
-					];
+			];
 			$tampildata['hasil']=$this->mmhs->tampildatastatus();
 			$data['table']=$this->load->view('Mahasiswa/status_table',$tampildata,TRUE);
 			$this->load->view('pages-status',$data);
 		}
-
+		
 		function perusahaan(){
 			$data1=[
 				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
-
+				
 			];
-
+			
 			$data=[
 				'header'=>$this->load->view('partial/header','',true),
 				'navbar'=>$this->load->view('partial/navbar',$data1,true),
 				'sidebar'=>$this->load->view('partial/sidebar','',true),
 				'footer'=>$this->load->view('partial/footer','',true),
 				'dataperusahaan'=>$this->mmhs->getperusahaan($this->session->userdata('id_mhs')),
-					];
+			];
 			$tampildata['hasil']=$this->mmhs->tampildata();
 			$data['table']=$this->load->view('Mahasiswa/company_table',$tampildata,TRUE);
 			$this->load->view('Mahasiswa/pages-perusahaan',$data);	
 		}
-
-		public function pesanan() {
-			$this->load->model('Mpesanan');
-			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
-			$data['memesan'] = $this->Mpesanan->getPesananByOutlet($id_Pegawai_Outlet);
-			$this->load->view('Mahasiswa/pesanan_outlet', $data);
-		}
-
+		
+		
 		public function profile()
 		{
 			$data1=[
 				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_Pegawai_Outlet')),
-
+				
 			];
 			$data=[
 				'header'=>$this->load->view('partial/header','',true),
@@ -131,36 +125,36 @@
 			];
 			
 			$data=[
-			'header'=>$this->load->view('partial/header','',true),
-			'navbar'=>$this->load->view('partial/navbar',$data1,true),
-			'sidebarhistory'=>$this->load->view('partial/sidebarhistory','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
-		];
-		$this->load->view('Mahasiswa/pages-history',$data);
-	}
-	
-	public function messages()
-	{
-		$data1=[
-			'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
-			
-		];
-		$data=[
-			'header'=>$this->load->view('partial/header','',true),
-			'navbar'=>$this->load->view('partial/navbar',$data1,true),
-			'sidebarmessages'=>$this->load->view('partial/sidebarmessages','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
-		];
-		$this->load->view('Mahasiswa/pages-messages',$data);
-	}
+				'header'=>$this->load->view('partial/header','',true),
+				'navbar'=>$this->load->view('partial/navbar',$data1,true),
+				'sidebarhistory'=>$this->load->view('partial/sidebarhistory','',true),
+				'footer'=>$this->load->view('partial/footer','',true),
+				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
+			];
+			$this->load->view('Mahasiswa/pages-history',$data);
+		}
 		
-			
+		public function messages()
+		{
+			$data1=[
+				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
+				
+			];
+			$data=[
+				'header'=>$this->load->view('partial/header','',true),
+				'navbar'=>$this->load->view('partial/navbar',$data1,true),
+				'sidebarmessages'=>$this->load->view('partial/sidebarmessages','',true),
+				'footer'=>$this->load->view('partial/footer','',true),
+				'datamhs'=>$this->mmhs->getmahasiswa($this->session->userdata('id_mhs')),
+			];
+			$this->load->view('Mahasiswa/pages-messages',$data);
+		}
+		
+		
 		function prosesloginmhs()
 		{
-				$this->load->model('mloginmhs');
-				$this->mloginmhs->prosesloginmhs();
+			$this->load->model('mloginmhs');
+			$this->mloginmhs->prosesloginmhs();
 		}
 		
 		// tambah data Keranjang
@@ -197,7 +191,7 @@
 			$this->load->view('Mahasiswa/product', $get_products);
 		}
 		
-			
+		
 		// Pergi ke Halaman Pesanan Outlet
 		public function pesanan()
 		{
@@ -206,6 +200,7 @@
 			$data['memesan'] = $this->Mmhs->get_pesanan($id_Pegawai_Outlet);
 			$this->load->view('Mahasiswa/pesanan', $data);
 		}
+		
 		public function masuk_checkout()
 		{	
 			$this->load->model('Mpesanan');
@@ -217,7 +212,7 @@
 		public function insertpesanan() {
 			$this->load->model('Mpesanan');
 			$this->Mpesanan->insert_memesan($this->session->userdata('id_Pegawai_Outlet'));
-			redirect('Cmhs/keranjang');
+			redirect('Cmhs/masuk_checkout');
 		}
 		public function proses_insert_pembayaran()
 		{

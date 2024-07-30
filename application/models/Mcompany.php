@@ -58,7 +58,7 @@
 		{
 			
 			$data=$_POST;
-			$idperusahaan=$data['id_Pegawai_Pabrik '];
+			$idperusahaan=$data['id_Pegawai_Pabrik'];
 			if($idperusahaan=="")
 			{
 				//simpan
