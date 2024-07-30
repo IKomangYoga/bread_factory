@@ -149,21 +149,27 @@ class Ccompany extends CI_Controller {
 
     // Fungsi untuk menghapus pesanan berdasarkan ID
     public function hapus_pesanan($id = null) {
+        log_message('debug', 'ID yang diterima: ' . $id);
         if ($id === null) {
             show_404();
             return;
         }
     
-        // Lanjutkan dengan penghapusan pesanan
-        $deleted = $this->Pesanan_model->hapus_pesanan($id);
+        // Lakukan penghapusan pesanan
+        $deleted = $this->mpesanan->hapus_pesanan($id);
     
         if ($deleted) {
+            // Set pesan sukses
             $this->session->set_flashdata('success', 'Pesanan berhasil dihapus.');
         } else {
+            // Set pesan error
             $this->session->set_flashdata('error', 'Terjadi kesalahan saat menghapus pesanan.');
         }
     
-        redirect('Perusahaan/pesanan_perusahaan');
+        // Redirect ke halaman perusahaan/pesanan_perusahaan
+        redirect('Ccompany/pesanan_perusahaan');
     }
+    
+    
     
 }

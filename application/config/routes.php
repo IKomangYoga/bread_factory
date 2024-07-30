@@ -59,3 +59,4 @@ $route['Ccompany/update_status/(:num)'] = 'Ccompany/update_status/$1';
 $route['Ccompany/hapus_pesanan/(:num)'] = 'Ccompany/hapus_pesanan/$1';
 
 
+

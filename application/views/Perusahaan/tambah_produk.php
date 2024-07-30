@@ -19,6 +19,28 @@
 </head>
 
 <body>
+    
+    <!-- Start Header/Navigation -->
+    <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Bread Factory<span>.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsFurni">
+                <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<?php echo base_url('ccompany/dashboard'); ?>">Home</a>
+                    </li>
+                    <li><a class="nav-link" href="<?php echo base_url('ccompany/pesanan_perusahaan'); ?>">Pesanan</a></li>
+                    <li><a class="nav-link" href="<?php echo base_url('ccompany/tambah_roti'); ?>">Tambah Product</a></li>
+                </ul>
+                <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                    <li><a class="nav-link" href="<?php echo base_url('ccompany/profile'); ?>"><img src="<?= base_url() ?>assets/asset/images/user.svg"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container mt-5">
         <h1>Tambah Produk Baru</h1>
 

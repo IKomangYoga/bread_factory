@@ -73,11 +73,11 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <?php if (isset($row->status_pesanan) && $row->status_pesanan == 'Sudah Sampai'): ?>
-                                        <a href="<?= base_url('Ccompany/hapus_pesanan/' . (isset($row->id) ? $row->id : '')); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus pesanan ini?')">Hapus</a>
-
-                                    <?php endif; ?>
+                                  <?php if (isset($row->status_pesanan) && $row->status_pesanan == 'Sudah Sampai'): ?>
+                                    <a href="<?= base_url('Ccompany/hapus_pesanan/' . (isset($row->id_outlet) ? $row->id_outlet : '')); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus pesanan ini?')">Hapus</a>
+                                         <?php endif; ?>
                                 </td>
+
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
