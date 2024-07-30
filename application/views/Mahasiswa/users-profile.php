@@ -130,39 +130,42 @@
                 <!-- End Overview -->
 
                 <!-- Profile Edit -->
+                
                 <div class="tab-pane fade show" id="profile-edit">
                   <h5 class="card-title">Profile Detail</h5>
 
-                  <div class="row mb-3">
+                  <form action="<?php echo base_url('Cmhs/update_pesanan'); ?>" method="post">
+                    <div class="row mb-3">
                       <label for="Nama" class="col-md-4 col-lg-3 col-form-label">Nama</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Nama" type="text" class="form-control" id="Nama_pegawai_pabrik" value="<?php echo $datamhs->Nama_pegawai_outlet ?>">
+                        <input name="Nama" type="text" class="form-control" id="Nama_pegawai_outlet" value="<?php echo $datamhs->Nama_pegawai_outlet ?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="Alamat" class="form-control" id="Alamat_pegawai_pabrik" style="height: 100px"><?php echo $datamhs->Alamat_pegawai_outlet ?></textarea>
+                        <textarea name="Alamat" class="form-control" id="Alamat_pegawai_outlet" style="height: 100px"><?php echo $datamhs->Alamat_pegawai_outlet ?></textarea>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">jabatan pegawai pabrik</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Jabatan Pegawai Pabrik</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="No_Telepon" type="text" class="form-control" id="jabatan_pegawai_pabrik" value="<?php echo $datamhs->jabatan_pegawa_outlet ?>">
+                        <input name="No_Telepon" type="text" class="form-control" id="jabatan_pegawa_outlet" value="<?php echo $datamhs->jabatan_pegawa_outlet ?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Divisi pegawai pabrik</label>
+                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Divisi Pegawai Pabrik</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Divisi" type="text" class="form-control" id="Divisi_pegawai_pabrik" value="<?php echo $datamhs->Divisi_pegawai_outlet ?>">
+                        <input name="Divisi" type="text" class="form-control" id="Divisi_pegawai_outlet" value="<?php echo $datamhs->Divisi_pegawai_outlet ?>">
                       </div>
                     </div>
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Password?')">Change Password</button>
                     </div>
+                  </form>
                 </div>
                 <!-- End Edit -->
               </div>
