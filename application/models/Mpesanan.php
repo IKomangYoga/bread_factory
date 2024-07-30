@@ -31,7 +31,15 @@ class Mpesanan extends CI_Model
     // Fungsi untuk memasukkan data pembayaran
     public function get_memesan($data)
     {   
-        $query = $this->db->get_where('memesan', array('id_Pegawai_Outlet' => $data));
+        //$query = $this->db->get_where('memesan', array('id_Pegawai_Outlet' => $data));
+
+        $this->db->select('memesan.*, roti.jenis_roti'); // Select fields from both tables
+        $this->db->from('memesan');
+        $this->db->join('roti', 'memesan.id_roti = roti.id_roti'); // Join tables on id_roti
+        $this->db->where('memesan.id_Pegawai_Outlet', $data);
+        
+        $query = $this->db->get();
+
         return $query->result(); // Return the result as an array of objects
     }
     
