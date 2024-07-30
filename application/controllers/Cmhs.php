@@ -211,7 +211,26 @@
 
 		public function insertpesanan() {
 			$this->load->model('Mpesanan');
-			$this->Mpesanan->insert_memesan($this->session->userdata('id_Pegawai_Outlet'));
+			$id_Pegawai_Outlet = $this->session->userdata('id_Pegawai_Outlet');
+
+			$data = [
+				[
+					'tanggal_pembayaran' => 2024-07-01,
+					'jumlah_pesanan' => 1,
+					'tanggal_pesan' => 2024-07-01,
+					'id_outlet' => 1,
+					'id_Pegawai_Outlet' => $id_Pegawai_Outlet,
+					'id_roti' => 1,
+					'id_Pegawai_Pabrik' => 1,
+					'id_mekanisme' => 1
+				]
+			];
+			$data1 = [
+				[
+					'id_Pegawai_Outlet' => $this->session->userdata('id_Pegawai_Outlet')
+				]
+			];
+			$this->Mpesanan->insert_memesan($data);
 			redirect('Cmhs/masuk_checkout');
 		}
 		public function proses_insert_pembayaran()
