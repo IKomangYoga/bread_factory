@@ -63,7 +63,7 @@ class Mpesanan extends CI_Model
     // Fungsi untuk memperbarui status pesanan
     public function update_order_status($order_id, $new_status) {
         $this->db->set('status_pesanan', $new_status);
-        $this->db->where('id_outlet', $order_id);
+        $this->db->where('id_memesan', $order_id);
         return $this->db->update('memesan');
     }
 

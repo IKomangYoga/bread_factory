@@ -64,7 +64,7 @@
                                 <td>Rp <?= number_format((isset($row->harga) ? $row->harga : 0) * (isset($row->jumlah_pesanan) ? $row->jumlah_pesanan : 0), 0, ',', '.'); ?></td>
                                 <td><?= htmlspecialchars(isset($row->tanggal_pesan) ? date('d-m-Y', strtotime($row->tanggal_pesan)) : ''); ?></td>
                                 <td>
-                                    <form method="post" action="<?= base_url('Ccompany/update_status/' . (isset($row->id_outlet) ? $row->id_outlet : '')); ?>">
+                                    <form method="post" action="<?= base_url('Ccompany/update_status/' . (isset($row->id_memesan) ? $row->id_memesan : '')); ?>">
                                         <select name="status" class="form-control" onchange="this.form.submit()">
                                             <option value="Dibuat" <?= isset($row->status_pesanan) && $row->status_pesanan == 'Dibuat' ? 'selected' : ''; ?>>Dibuat</option>
                                             <option value="Dikirim" <?= isset($row->status_pesanan) && $row->status_pesanan == 'Dikirim' ? 'selected' : ''; ?>>Dikirim</option>

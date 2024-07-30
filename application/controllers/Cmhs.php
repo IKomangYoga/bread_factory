@@ -265,7 +265,25 @@
 			$this->Mkeranjang->hapuskeranjang($id_keranjang);
 			redirect('Cmhs/keranjang');
 		}
-		
+
+		public function update_pesanan() {
+			$Nama_pegawai_outlet = $this->input->post('Nama');
+			$Alamat_pegawai_outlet = $this->input->post('Alamat');
+			$jabatan_pegawa_outlet = $this->input->post('No_Telepon');
+			$Divisi_pegawai_outlet = $this->input->post('Divisi');
+		  
+			// Update the profile data in the database
+			$this->db->where('id_Pegawai_Outlet', $this->session->userdata('id_Pegawai_Outlet'));
+			$this->db->update('pegawai_outlet', array(
+			  'Nama_pegawai_outlet' => $Nama_pegawai_outlet,
+			  'Alamat_pegawai_outlet' => $Alamat_pegawai_outlet,
+			  'jabatan_pegawa_outlet' => $jabatan_pegawa_outlet,
+			  'Divisi_pegawai_outlet' => $Divisi_pegawai_outlet
+			));
+		  
+			// Redirect to the profile page
+			redirect('Cmhs/profile');
+		  }
     }
 
 	?>
