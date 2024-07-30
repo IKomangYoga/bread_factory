@@ -68,7 +68,7 @@
 			{
 				//edit	
 				$update=array(
-					'id_Pegawai_Outlet '=>$id_Pegawai_Outlet 
+					'id_Pegawai_Outlet'=>$id_Pegawai_Outlet 
 				);
 				$this->db->where($update);
 				$this->db->update('pegawai_outlet',$data);

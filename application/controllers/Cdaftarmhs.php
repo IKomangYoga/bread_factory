@@ -38,8 +38,8 @@
 
         function prosesloginmhs()
 		{
-			$this->load->model('mloginmhs');
-			$this->mloginmhs->prosesloginmhs();
+			$this->load->model('Mloginmhs');
+			$this->Mloginmhs->prosesloginmhs();
 		}
 
 		
