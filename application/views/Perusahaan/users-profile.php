@@ -123,16 +123,14 @@
                     <div class="col-lg-3 col-md-4 label">Password</div>
                     <div class="col-lg-9 col-md-8"><?php echo $dataperusahaan->password ?></div>
                   </div>
-                  <div class="row text-center">
-                    <button type="submit" class="btn btn-primary" href="<?php echo base_url('Cdaftarcompany/logincompany')?>">Change Password</button>
-                  </div>
+                  
                 </div>
                 <!-- End Overview -->
 
                 <!-- Profile Edit -->
                 <div class="tab-pane fade show" id="profile-edit">
                   <h5 class="card-title">Profile Detail</h5>
-
+                  <form action="<?php echo base_url('Ccompany/update_profile'); ?>" method="post">
                   <div class="row mb-3">
                       <label for="Nama" class="col-md-4 col-lg-3 col-form-label">Nama</label>
                       <div class="col-md-8 col-lg-9">
@@ -150,7 +148,7 @@
                     <div class="row mb-3">
                       <label for="Phone" class="col-md-4 col-lg-3 col-form-label">jabatan pegawai pabrik</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="No_Telepon" type="text" class="form-control" id="jabatan_pegawai_pabrik" value="<?php echo $dataperusahaan->jabatan_pegawai_pabrik ?>">
+                        <input name="Jabatan" type="text" class="form-control" id="jabatan_pegawai_pabrik" value="<?php echo $dataperusahaan->jabatan_pegawai_pabrik ?>">
                       </div>
                     </div>
 
@@ -160,9 +158,16 @@
                         <input name="Divisi" type="text" class="form-control" id="Divisi_pegawai_pabrik" value="<?php echo $dataperusahaan->Divisi_pegawai_pabrik ?>">
                       </div>
                     </div>
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Password?')">Change Password</button>
+                    <div class="row mb-3">
+                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Divisi pegawai pabrik</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="Telp" type="text" class="form-control" id="No_hp_pegawai_pabrik" value="<?php echo $dataperusahaan->No_hp_pegawai_pabrik ?>">
+                      </div>
                     </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Data?')">Edit Profile</button>
+                    </div>
+                  </form>  
                 </div>
                 <!-- End Edit -->
               </div>

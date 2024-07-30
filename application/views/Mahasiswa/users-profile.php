@@ -34,7 +34,7 @@
             <li><a class="nav-link" href="<?php echo base_url('cmhs/product'); ?>">Product</a></li>
             <li><a class="nav-link" href="<?php echo base_url('cmhs/pesanan'); ?>">Pesananmu</a></li>
             <li class="nav-item"><a class="nav-link" href="<?php echo base_url('cmhs/about_us'); ?>">About us</a></li>
-            <li><a class="nav-link" href="<?php echo base_url('cmhs/contact_us'); ?>">Contact us</a></li>
+
           </ul>
 
           <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -134,7 +134,7 @@
                 <div class="tab-pane fade show" id="profile-edit">
                   <h5 class="card-title">Profile Detail</h5>
 
-                  <form action="<?php echo base_url('Cmhs/update_pesanan'); ?>" method="post">
+                  <form action="<?php echo base_url('Cmhs/update_profile'); ?>" method="post">
                     <div class="row mb-3">
                       <label for="Nama" class="col-md-4 col-lg-3 col-form-label">Nama</label>
                       <div class="col-md-8 col-lg-9">
@@ -163,7 +163,7 @@
                       </div>
                     </div>
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Password?')">Change Password</button>
+                      <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Data?')">Edit profile</button>
                     </div>
                   </form>
                 </div>

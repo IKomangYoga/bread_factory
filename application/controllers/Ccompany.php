@@ -67,6 +67,27 @@ class Ccompany extends CI_Controller {
         redirect('Ccompany/pesanan_perusahaan');
     }
 
+    public function update_profile()
+    {
+            $Nama_pegawai_pabrik = $this->input->post('Nama');
+			$Alamat_pegawai_pabrik = $this->input->post('Alamat');
+			$jabatan_pegawai_pabrik = $this->input->post('Jabatan');
+			$Divisi_pegawai_pabrik = $this->input->post('Divisi');
+            $No_hp_pegawai_pabrik = $this->input->post('Telp');
+		  
+		
+			$this->db->where('id_Pegawai_Pabrik', $this->session->userdata('id_Pegawai_Pabrik'));
+			$this->db->update('pegawai_pabrik', array(
+			  'Nama_pegawai_pabrik' => $Nama_pegawai_pabrik,
+			  'Alamat_pegawai_pabrik' => $Alamat_pegawai_pabrik,
+			  'jabatan_pegawai_pabrik' => $jabatan_pegawai_pabrik,
+			  'Divisi_pegawai_pabrik' => $Divisi_pegawai_pabrik,
+              'No_hp_pegawai_pabrik' => $No_hp_pegawai_pabrik
+			));
+		  
+			
+			redirect('Ccompany/profile');
+    }
     public function editdata() {
         $this->mcompany->simpanperusahaan();
     }

@@ -267,7 +267,7 @@
 			redirect('Cmhs/keranjang');
 		}
 
-		public function update_pesanan() {
+		public function update_profile() {
 			$Nama_pegawai_outlet = $this->input->post('Nama');
 			$Alamat_pegawai_outlet = $this->input->post('Alamat');
 			$jabatan_pegawa_outlet = $this->input->post('No_Telepon');
