@@ -75,6 +75,7 @@
                                 <td>
                                     <?php if (isset($row->status_pesanan) && $row->status_pesanan == 'Sudah Sampai'): ?>
                                         <a href="<?= base_url('Ccompany/hapus_pesanan/' . (isset($row->id) ? $row->id : '')); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus pesanan ini?')">Hapus</a>
+
                                     <?php endif; ?>
                                 </td>
                             </tr>
@@ -91,5 +92,6 @@
     <script src="<?= base_url() ?>assets/asset/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/asset/js/tiny-slider.js"></script>
     <script src="<?= base_url() ?>assets/asset/js/custom.js"></script>
+    
 </body>
 </html>

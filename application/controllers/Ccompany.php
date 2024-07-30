@@ -12,6 +12,8 @@ class Ccompany extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('session'); // Load session library
         $this->load->model('mpesanan'); // Pastikan model ini sudah ada
+        $this->mcompany = $this->load->model('Mcompany'); // Contoh pemuatan model
+        $this->mcompany = new mcompany(); // Pastikan baris ini menginisialisasi model dengan benar
     }
     public function profile()
 		{
@@ -67,6 +69,10 @@ class Ccompany extends CI_Controller {
 
     public function editdata() {
         $this->mcompany->simpanperusahaan();
+    }
+
+    public function some_method() {
+        $this->mcompany->tambah_roti(); // Pastikan $mcompany tidak null sebelum memanggil metode
     }
 
     public function tambah_roti() {
@@ -140,4 +146,24 @@ class Ccompany extends CI_Controller {
         ];
         $this->load->view('Perusahaan/pages-calonpkl', $data);
     }
+
+    // Fungsi untuk menghapus pesanan berdasarkan ID
+    public function hapus_pesanan($id = null) {
+        if ($id === null) {
+            show_404();
+            return;
+        }
+    
+        // Lanjutkan dengan penghapusan pesanan
+        $deleted = $this->Pesanan_model->hapus_pesanan($id);
+    
+        if ($deleted) {
+            $this->session->set_flashdata('success', 'Pesanan berhasil dihapus.');
+        } else {
+            $this->session->set_flashdata('error', 'Terjadi kesalahan saat menghapus pesanan.');
+        }
+    
+        redirect('Perusahaan/pesanan_perusahaan');
+    }
+    
 }

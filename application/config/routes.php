@@ -56,4 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['PesananController'] = 'PesananController/index';
 $route['PesananController/detail/(:num)'] = 'PesananController/detail/$1';
 $route['Ccompany/update_status/(:num)'] = 'Ccompany/update_status/$1';
+$route['Ccompany/hapus_pesanan/(:num)'] = 'Ccompany/hapus_pesanan/$1';
+
 
