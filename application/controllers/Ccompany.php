@@ -46,26 +46,37 @@ class Ccompany extends CI_Controller {
         $this->load->view('Perusahaan/pesanan_perusahaan', $data);
     }
 
-    public function update_status($id_outlet = null) {
-        if ($id_outlet === null) {
-            $this->session->set_flashdata('error', 'ID Outlet tidak ditemukan.');
-            redirect('Ccompany/pesanan_perusahaan');
-        }
-
-        $new_status = $this->input->post('status');
-        // Debugging: Periksa nilai yang diterima
-            log_message('debug', 'ID Outlet: ' . $id_outlet);
-            log_message('debug', 'New Status: ' . $new_status);
-
-
-        if ($this->mpesanan->update_order_status1($id_outlet, $new_status)) {
-            $this->session->set_flashdata('success', 'Status pesanan berhasil diperbarui.');
-        } else {
-            $this->session->set_flashdata('error', 'Gagal memperbarui status pesanan.');
-        }
+    public function update_status($order_id, $new_status) {
+        // Memulai transaksi
+        $this->db->trans_start();
         
-        redirect('Ccompany/pesanan_perusahaan');
+        // Update status di tabel orders
+        $this->db->where('id', $order_id);
+        $this->db->update('orders', ['order_status' => $new_status]);
+        
+        // Memasukkan perubahan status ke tabel order_history
+        $data = [
+            'order_id' => $order_id,
+            'status' => $new_status,
+            'changed_at' => date('Y-m-d H:i:s')
+        ];
+        $this->db->insert('order_history', $data);
+        
+        // Menyelesaikan transaksi
+        $this->db->trans_complete();
+        
+        // Mengecek apakah transaksi berhasil
+        if ($this->db->trans_status() === FALSE) {
+            // Jika gagal, rollback perubahan
+            log_message('error', 'Gagal memperbarui status pesanan untuk order_id: ' . $order_id);
+            return false;
+        } else {
+            // Jika berhasil, commit perubahan
+            log_message('debug', 'Status pesanan berhasil diperbarui untuk order_id: ' . $order_id);
+            return true;
+        }
     }
+    
 
     public function update_profile()
     {
